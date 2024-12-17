@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: gastrotrack-api
+  datasource:
+    url: jdbc:postgresql://localhost:5433/gastrotrackdb
+    username: postgres
+    password: password
+  sql:
+    init:
+      mode: always # Ensures schema.sql runs on app startup
+  jpa:
+    hibernate:
+      ddl-auto: none # Prevent Hibernate from auto-creating tables
+    show-sql: true # Show SQL queries in logs
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+server:
+  port: 8080
