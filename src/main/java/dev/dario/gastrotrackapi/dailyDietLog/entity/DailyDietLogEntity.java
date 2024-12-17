@@ -1,7 +1,7 @@
 package dev.dario.gastrotrackapi.dailyDietLog.entity;
 
 
-import dev.dario.gastrotrackapi.users.entity.User;
+import dev.dario.gastrotrackapi.users.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,7 +20,7 @@ public class DailyDietLogEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserEntity user;
 
     private LocalDate date;
 

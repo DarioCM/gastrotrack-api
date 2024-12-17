@@ -1,7 +1,7 @@
 package dev.dario.gastrotrackapi.foodSymptomLog.entity;
 
 
-import dev.dario.gastrotrackapi.users.entity.User;
+import dev.dario.gastrotrackapi.users.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +24,7 @@ public class FoodSymptomLogEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private UserEntity user;
 
     private String foodName;
     private String symptom;
