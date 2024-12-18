@@ -1,4 +1,4 @@
-package dev.dario.gastrotrackapi.foodSymptomLog.repository;
+package dev.dario.gastrotrackapi.jpa.repository;
 
 import dev.dario.gastrotrackapi.foodSymptomLog.entity.FoodSymptomLogEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

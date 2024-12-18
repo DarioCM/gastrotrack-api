@@ -4,6 +4,7 @@ package dev.dario.gastrotrackapi.dailyDietLog.entity;
 import dev.dario.gastrotrackapi.users.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.redis.core.RedisHash;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "daily_diet_logs")
+@RedisHash("DailyDietLog")
 public class DailyDietLogEntity {
 
     @Id

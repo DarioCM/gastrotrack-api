@@ -1,4 +1,4 @@
-package dev.dario.gastrotrackapi.users.repository;
+package dev.dario.gastrotrackapi.jpa.repository;
 
 import dev.dario.gastrotrackapi.users.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
