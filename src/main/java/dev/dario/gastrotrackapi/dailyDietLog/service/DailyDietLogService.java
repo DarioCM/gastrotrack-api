@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class DailyDietLogService {
 
-    private DailyDietLogRepository repository;
+    private final DailyDietLogRepository repository;
 
     // findAll
     public Iterable<DailyDietLogEntity> findAllByUserId(UUID userId) {

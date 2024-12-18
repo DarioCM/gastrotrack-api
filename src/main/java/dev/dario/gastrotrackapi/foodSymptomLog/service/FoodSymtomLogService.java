@@ -14,6 +14,7 @@ public class FoodSymtomLogService {
 
     private final FoodSymptomLogRepository repository;
 
+
     // getAllBYUserID
     public Iterable<FoodSymptomLogEntity> findAllByUserId(UUID userId) {
         return repository.getAllByUserId(userId);

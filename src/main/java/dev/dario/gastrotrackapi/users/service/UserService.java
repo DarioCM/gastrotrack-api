@@ -28,11 +28,8 @@ public class UserService {
 
     // findOrThrow
     private UserEntity findOrThrow(final UUID id) {
-        return repository
-                .findById(id)
-                .orElseThrow( () -> new NotFoundException("User not found"));
+        return repository.findById(id).orElseThrow(() -> new NotFoundException("User not found"));
     }
-
 
 
 }

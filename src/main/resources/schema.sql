@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
                        id UUID PRIMARY KEY,
                        username VARCHAR(100) NOT NULL,
                        email VARCHAR(255) UNIQUE NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE users (
                        updated_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE food_symptom_logs (
+CREATE TABLE IF NOT EXISTS food_symptom_logs (
                                    id UUID PRIMARY KEY,
                                    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
                                    food_name VARCHAR(255) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE food_symptom_logs (
                                    created_at TIMESTAMP DEFAULT NOW()
 );
 
-CREATE TABLE daily_diet_logs (
+CREATE TABLE IF NOT EXISTS daily_diet_logs (
                                  id UUID PRIMARY KEY,
                                  user_id UUID REFERENCES users(id) ON DELETE CASCADE,
                                  date DATE NOT NULL,
