@@ -14,7 +14,7 @@ spring:
     show-sql: true # Show SQL queries in logs
   data:
     redis:
-      host: localhost
+      host: redis
       port: 6379
 
 server:

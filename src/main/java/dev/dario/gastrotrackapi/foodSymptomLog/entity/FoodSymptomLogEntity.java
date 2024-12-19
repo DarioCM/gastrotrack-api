@@ -14,6 +14,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "food_symptom_logs")
+@RedisHash("FoodSymptomLog")
 public class FoodSymptomLogEntity {
 
     @Id

@@ -11,3 +11,9 @@ services:
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: password
         POSTGRES_DB: gastrotrackdb
+
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
