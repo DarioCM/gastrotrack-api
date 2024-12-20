@@ -26,10 +26,11 @@ CREATE TABLE IF NOT EXISTS food_symptom_logs (
 );
 
 CREATE TABLE IF NOT EXISTS daily_diet_logs (
-                                 id UUID PRIMARY KEY,
-                                 user_id UUID REFERENCES users(id) ON DELETE CASCADE,
-                                 date DATE NOT NULL,
-                                 meals JSON NOT NULL,
-                                 notes TEXT,
-                                 created_at TIMESTAMP DEFAULT NOW()
-);
+    id UUID PRIMARY KEY,
+    user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+    date DATE NOT NULL,
+    meals TEXT NOT NULL,
+    type_meal VARCHAR(255),
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+    );

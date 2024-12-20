@@ -4,12 +4,14 @@ import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.jpa.repository.DailyDietLogRepository;
 import dev.dario.gastrotrackapi.exception.NotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
 @AllArgsConstructor
+@Log4j2
 public class DailyDietLogService {
 
     private final DailyDietLogRepository repository;

@@ -26,8 +26,9 @@ public class DailyDietLogEntity {
 
     private LocalDate date;
 
-    @Column(columnDefinition = "json", nullable = false)
-    private String meals; // JSON format for meals
+    private String meals;
+
+    private String typeMeal;
 
     private String notes;
 
