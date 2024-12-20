@@ -15,6 +15,9 @@ public class DailyDietLogDto {
     private UUID id;
 
     @NotNull
+    private UUID userId;
+
+    @NotNull
     private String date;
 
     @NotNull
@@ -32,12 +35,13 @@ public class DailyDietLogDto {
     }
 
     // Parameterized constructor (optional)
-    public DailyDietLogDto(UUID id, String date, String meals, String typeMeal, String notes) {
+    public DailyDietLogDto(UUID id, String date, String meals, String typeMeal, String notes, String userId) {
         this.id = id;
         this.date = date;
         this.meals = meals;
         this.typeMeal = typeMeal;
         this.notes = notes;
+        this.userId = UUID.fromString(userId);
     }
 
 

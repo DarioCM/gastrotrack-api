@@ -52,17 +52,20 @@ public class DailyDietLogController {
                         log.getDate().toString(),
                         log.getMeals(),
                         log.getTypeMeal(),
-                        log.getNotes()
+                        log.getNotes(),
+                        log.getUser().getId().toString()
                 ))
                 .collect(Collectors.toList());
     }
 
     // POST a new daily diet log
     // POST  /api/v1/daily-diet-logs
-    @PostMapping
+    @PostMapping("/{id}")
     public DailyDietLogDto addDailyDietLog(
+            @PathVariable("id") UUID userId,
             @Valid @RequestBody DailyDietLogDto dto) {
 
+        dto.setUserId(userId);
         log.info("Adding daily diet log DTO enter: {}", dto);
         var entity = convertToEntity(dto);
         log.info("Adding daily diet log entity: {}", entity);
