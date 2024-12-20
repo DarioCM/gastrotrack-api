@@ -1,18 +1,20 @@
 package dev.dario.gastrotrackapi.users.entity;
 
 
+import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.util.List;
 import java.util.UUID;
 
 @Data
 @Entity
 @Table(name = "users")
 public class UserEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,7 +40,7 @@ public class UserEntity {
     private String dietType; // e.g., "Vegetarian", "Meat-based"
 
     @Column(name = "gastritis_duration")
-    private Period gastritisDuration; // Period to track duration
+    private String gastritisDuration; // Period to track duration
 
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -46,5 +48,8 @@ public class UserEntity {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    // One-to-Many relationship with DailyDietLogEntity
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<DailyDietLogEntity> dailyDietLogs;
 
 }

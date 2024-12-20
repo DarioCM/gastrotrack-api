@@ -6,27 +6,31 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.data.redis.core.RedisHash;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+
+
 @Data
 @Entity
 @Table(name = "daily_diet_logs")
-@RedisHash("DailyDietLog")
-public class DailyDietLogEntity {
+public class DailyDietLogEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
+    // Many-to-One relationship with UserEntity
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
     private LocalDate date;
 
-    private String meals;
+    @Column(nullable = false)
+    private String meals; // should be a string
 
     private String typeMeal;
 
@@ -35,5 +39,16 @@ public class DailyDietLogEntity {
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @Override
+    public String toString() {
+        return "DailyDietLogEntity{" +
+                "id=" + id +
+                ", date=" + date +
+                ", meals='" + meals + '\'' +
+                ", typeMeal='" + typeMeal + '\'' +
+                ", notes='" + notes + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 
 }

@@ -12,6 +12,13 @@ spring:
     hibernate:
       ddl-auto: none # Prevent Hibernate from auto-creating tables
     show-sql: true # Show SQL queries in logs
+    properties:
+      hibernate.format_sql: true
+    logging:
+      level:
+        org.hibernate.SQL: DEBUG
+        org.hibernate.type.descriptor.sql: TRACE
+
   data:
     redis:
       host: redis
@@ -19,3 +26,5 @@ spring:
 
 server:
   port: 8081
+
+

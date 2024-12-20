@@ -3,6 +3,7 @@ package dev.dario.gastrotrackapi.dailyDietLog.controller;
 import dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto;
 import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService;
+import dev.dario.gastrotrackapi.users.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,8 +25,8 @@ import java.util.stream.StreamSupport;
 public class DailyDietLogController {
 
     private final DailyDietLogService service;
-
     private final ModelMapper mapper;
+    private final UserService userService;
 
     private DailyDietLogDto convertToDto(DailyDietLogEntity entity) {
         return mapper.map(entity, DailyDietLogDto.class);
@@ -41,12 +42,18 @@ public class DailyDietLogController {
     // GET /api/v1/daily-diet-logs/123e4567-e89b-12d3-a456-426614174000
     @GetMapping("/{userId}")
     public List<DailyDietLogDto> getAllByUserId(@PathVariable UUID userId) {
-        var logList = StreamSupport
-                .stream(
-                        service.findAllByUserId(userId).spliterator(), false)
-                .collect(Collectors.toList());
-        return logList.stream()
-                .map(this::convertToDto)
+
+        List<DailyDietLogEntity> logs = service.findAllByUserId(userId);
+        log.info("Daily diet logs: {}", logs);
+
+        return logs.stream()
+                .map(log -> new DailyDietLogDto(
+                        log.getId(),
+                        log.getDate().toString(),
+                        log.getMeals(),
+                        log.getTypeMeal(),
+                        log.getNotes()
+                ))
                 .collect(Collectors.toList());
     }
 

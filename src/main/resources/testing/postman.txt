@@ -1,0 +1,14 @@
+POST
+    http://localhost:8081/api/v1/daily-diet-logs
+
+{
+    "userId": "123e4567-e89b-12d3-a456-426614174000",
+    "date": "2023-10-01",
+    "meals": "Eggs and toast",
+    "typeMeal": "Breakfast",
+    "notes": "Felt good today, no symptoms."
+}
+
+
+GET
+    http://localhost:8081/api/v1/daily-diet-logs/123e4567-e89b-12d3-a456-426614174000

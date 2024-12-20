@@ -1,13 +1,14 @@
-package dev.dario.gastrotrackapi.users.record;
+package dev.dario.gastrotrackapi.users.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.Period;
 import java.util.UUID;
 
 @Data
-public class UserRecord {
+public class UserDto  {
 
         private UUID id;
 
@@ -42,7 +43,7 @@ public class UserRecord {
         private String dietType;
 
         @NotNull(message = "Gastritis duration is required")
-        private Period gastritisDuration;
+        private String gastritisDuration;
 
 
 }

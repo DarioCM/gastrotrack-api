@@ -32,4 +32,7 @@ public class UserService {
     }
 
 
+    public boolean existsById(UUID userId) {
+        return repository.existsById(userId);
+    }
 }

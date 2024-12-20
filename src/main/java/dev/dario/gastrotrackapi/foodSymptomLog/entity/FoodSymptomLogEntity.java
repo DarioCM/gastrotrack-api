@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.redis.core.RedisHash;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -15,7 +16,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "food_symptom_logs")
 @RedisHash("FoodSymptomLog")
-public class FoodSymptomLogEntity {
+public class FoodSymptomLogEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

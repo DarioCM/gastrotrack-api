@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -17,7 +18,9 @@ public class DailyDietLogService {
     private final DailyDietLogRepository repository;
 
     // findAll
-    public Iterable<DailyDietLogEntity> findAllByUserId(UUID userId) {
+    // Get all logs for a user by user ID
+    public List<DailyDietLogEntity> findAllByUserId(UUID userId) {
+
         return repository.findAllByUserId(userId);
     }
 
