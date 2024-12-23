@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -41,12 +42,12 @@ public class DailyDietLogController {
     // Get all logs for a user
     // GET /api/v1/daily-diet-logs/123e4567-e89b-12d3-a456-426614174000
     @GetMapping("/{userId}")
-    public List<DailyDietLogDto> getAllByUserId(@PathVariable UUID userId) {
+    public ResponseEntity<List<DailyDietLogDto>> getAllByUserId(@PathVariable UUID userId) {
 
         List<DailyDietLogEntity> logs = service.findAllByUserId(userId);
         log.info("Daily diet logs: {}", logs);
 
-        return logs.stream()
+        List<DailyDietLogDto> dtoList = logs.stream()
                 .map(log -> new DailyDietLogDto(
                         log.getId(),
                         log.getDate().toString(),
@@ -56,12 +57,14 @@ public class DailyDietLogController {
                         log.getUser().getId().toString()
                 ))
                 .collect(Collectors.toList());
+
+        return ResponseEntity.ok(dtoList);
     }
 
     // POST a new daily diet log
     // POST  /api/v1/daily-diet-logs
     @PostMapping("/{id}")
-    public DailyDietLogDto addDailyDietLog(
+    public ResponseEntity<DailyDietLogDto> addDailyDietLog(
             @PathVariable("id") UUID userId,
             @Valid @RequestBody DailyDietLogDto dto) {
 
@@ -70,20 +73,23 @@ public class DailyDietLogController {
         var entity = convertToEntity(dto);
         log.info("Adding daily diet log entity: {}", entity);
         var log = service.addDailyDietLog(entity);
-        return convertToDto(log);
+        var responseDto = convertToDto(log);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
 
     // DELETE
     // DELETE /api/v1/daily-diet-logs/{id}
     @DeleteMapping("/{id}")
-    public void removeDailyDietLog(@PathVariable("id") UUID id) {
+    public ResponseEntity<Void> removeDailyDietLog(@PathVariable("id") UUID id) {
         service.removeDailyDietLog(id);
+        return ResponseEntity.noContent().build();
     }
 
     // PUT to update the log
     // PUT /api/v1/daily-diet-logs/{id}
     @PutMapping("/{id}")
-    public void updateDailyDietLog(
+    public ResponseEntity<Void> updateDailyDietLog(
             @PathVariable("id") UUID id,
             @Valid @RequestBody DailyDietLogDto dto) {
 
@@ -92,6 +98,8 @@ public class DailyDietLogController {
 
         var entity = convertToEntity(dto);
         service.updateDailyDietLog(id, entity);
+
+        return ResponseEntity.noContent().build();
 
     }
 
