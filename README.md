@@ -24,9 +24,16 @@
 
 ---
 
-## Quick Start
+## Disclaimer
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/gastrotrack-api.git
-   cd gastrotrack-api
+This repository is made publicly accessible for **demonstration purposes only**. 
+
+### Permissions:
+- You are allowed to view the source code directly on GitHub.
+- Sharing this repository link for non-commercial purposes is permitted.
+
+### Restrictions:
+- **Commercial use**, **cloning**, or **redistribution** of this project is strictly prohibited.
+- Modifications to the source code or its use in other projects without prior permission are not allowed.
+
+If you have questions or would like to discuss this project, feel free to contact me.
