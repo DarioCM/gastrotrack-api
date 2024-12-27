@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +43,11 @@ public class DailyDietLogController {
     // Get all logs for a user
     // GET /api/v1/daily-diet-logs/123e4567-e89b-12d3-a456-426614174000
     @GetMapping("/{userId}")
-    public ResponseEntity<List<DailyDietLogDto>> getAllByUserId(@PathVariable UUID userId) {
+    public ResponseEntity<List<DailyDietLogDto>> getAllByUserId(
+            @PathVariable UUID userId,
+            Pageable pageable) {
+
+        int toSkip = pageable.getPageSize() * pageable.getPageNumber();
 
         List<DailyDietLogEntity> logs = service.findAllByUserId(userId);
         log.info("Daily diet logs: {}", logs);
@@ -56,6 +61,7 @@ public class DailyDietLogController {
                         log.getNotes(),
                         log.getUser().getId().toString()
                 ))
+                .skip(toSkip).limit(pageable.getPageSize())
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(dtoList);
