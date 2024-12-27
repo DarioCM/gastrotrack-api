@@ -25,6 +25,10 @@ spring:
       port: 6379
 
 server:
-  port: 8081
+  port: 8085
 
-
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
