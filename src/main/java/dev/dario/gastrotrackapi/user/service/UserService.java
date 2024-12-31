@@ -1,7 +1,7 @@
-package dev.dario.gastrotrackapi.users.service;
+package dev.dario.gastrotrackapi.user.service;
 
 import dev.dario.gastrotrackapi.exception.NotFoundException;
-import dev.dario.gastrotrackapi.users.entity.UserEntity;
+import dev.dario.gastrotrackapi.user.entity.UserEntity;
 import dev.dario.gastrotrackapi.jpa.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

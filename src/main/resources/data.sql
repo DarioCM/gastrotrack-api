@@ -2,7 +2,8 @@ INSERT INTO users (
     id,
     username,
     email,
-    password,
+    stored_hash,
+    stored_salt,
     age,
     gender,
     height,
@@ -14,10 +15,11 @@ INSERT INTO users (
     created_at,
     updated_at
 ) VALUES (
-             '123e4567-e89b-12d3-a456-426614174000', -- Example UUID
+             '123e4567-e89b-12d3-a456-426614174000',
              'testuser',
              'testuser@example.com',
-             'password123',
+             decode('a12b3c4d5e6f7890abcd1234567890ef', 'hex'), -- Valid hash
+             decode('c3d4e5f607a8b9c123456789abcdef01', 'hex'), -- Valid salt
              30,
              'Male',
              1.75,
@@ -25,7 +27,7 @@ INSERT INTO users (
              'Moderately Active',
              'Mexican',
              'Balanced',
-             'One year and a half', -- Free-form text for gastritis duration
+             'One year and a half',
              NOW(),
              NOW()
          );

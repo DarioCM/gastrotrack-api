@@ -1,16 +1,18 @@
-package dev.dario.gastrotrackapi.users.dto;
+package dev.dario.gastrotrackapi.user.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
 
-import java.io.Serializable;
-import java.time.Period;
 import java.util.UUID;
 
 @Data
 public class UserDto  {
 
         private UUID id;
+
+        private String username;
+
+        //private String password;
 
         @NotBlank(message = "Email is required")
         @Email(message = "Email should be valid")

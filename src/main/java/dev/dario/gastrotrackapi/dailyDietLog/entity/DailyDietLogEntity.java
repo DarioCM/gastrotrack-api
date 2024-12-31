@@ -1,10 +1,9 @@
 package dev.dario.gastrotrackapi.dailyDietLog.entity;
 
 
-import dev.dario.gastrotrackapi.users.entity.UserEntity;
+import dev.dario.gastrotrackapi.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;
 import java.time.LocalDate;

@@ -1,13 +1,11 @@
-package dev.dario.gastrotrackapi.users.entity;
+package dev.dario.gastrotrackapi.user.entity;
 
 
 import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,12 +15,15 @@ import java.util.UUID;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(nullable = false, updatable = false)
     private UUID id;
 
     private String username;
+
+    @Column(unique = true)
     private String email;
-    private String password;
+
     private Integer age;
 
     private String gender;
@@ -52,4 +53,7 @@ public class UserEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DailyDietLogEntity> dailyDietLogs;
 
+    // Password hashing fields
+    private byte[] storedHash;
+    private byte[] storedSalt;
 }

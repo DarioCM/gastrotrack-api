@@ -1,11 +1,9 @@
 package dev.dario.gastrotrackapi.foodSymptomLog.entity;
 
 
-import dev.dario.gastrotrackapi.users.entity.UserEntity;
+import dev.dario.gastrotrackapi.user.entity.UserEntity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.redis.core.RedisHash;
 
 import java.io.Serializable;

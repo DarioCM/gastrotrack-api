@@ -3,7 +3,7 @@ package dev.dario.gastrotrackapi.dailyDietLog.controller;
 import dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto;
 import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService;
-import dev.dario.gastrotrackapi.users.service.UserService;
+import dev.dario.gastrotrackapi.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -18,7 +18,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @RestController
 @RequestMapping("/api/v1/daily-diet-logs")
