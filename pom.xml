@@ -99,6 +99,12 @@
             <version>1.6.4</version>
         </dependency>
 
+        <!-- to add security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -19,6 +19,11 @@ spring:
         org.hibernate.SQL: DEBUG
         org.hibernate.type.descriptor.sql: TRACE
 
+  security:
+    user:
+      name: admin
+      password: test
+
   data:
     redis:
       host: redis
@@ -32,3 +37,5 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+
+
