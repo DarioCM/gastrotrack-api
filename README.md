@@ -15,7 +15,7 @@
 
 ## Tech Stack
 - **Java 17**
-- **Spring Boot**
+- **Spring Boot 3.4.0**
 - **PostgreSQL**
 - **Redis**
 - **Lombok**
