@@ -1,12 +1,14 @@
 package dev.dario.gastrotrackapi.user.entity;
 
-
-import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -16,13 +18,25 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(nullable = false, updatable = false)
     private UUID id;
 
-    private String username;
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(nullable = false)
+    private String name; // Changed from username to name
 
-    @Column(unique = true)
+    @Email
+    @NotNull
+    @Column(unique = true, nullable = false)
     private String email;
+
+    @NotNull
+    @Lob
+    private byte[] storedHash;
+
+    @NotNull
+    @Lob
+    private byte[] storedSalt;
 
     private Integer age;
 
@@ -32,28 +46,14 @@ public class UserEntity {
 
     private Double weight; // Stored in kilograms
 
-    @Column(name = "activity_level")
-    private String activityLevel; // e.g., "Sedentary", "Moderately Active"
-
-    private String nationality;
-
-    @Column(name = "diet_type")
-    private String dietType; // e.g., "Vegetarian", "Meat-based"
-
     @Column(name = "gastritis_duration")
-    private String gastritisDuration; // Period to track duration
+    private String gastritisDuration; // Duration information
 
+    @CreationTimestamp
     @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
 
+    @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
-    // One-to-Many relationship with DailyDietLogEntity
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DailyDietLogEntity> dailyDietLogs;
-
-    // Password hashing fields
-    private byte[] storedHash;
-    private byte[] storedSalt;
 }

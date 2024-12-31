@@ -1,6 +1,6 @@
 INSERT INTO users (
     id,
-    username,
+    name,
     email,
     stored_hash,
     stored_salt,
@@ -8,25 +8,19 @@ INSERT INTO users (
     gender,
     height,
     weight,
-    activity_level,
-    nationality,
-    diet_type,
     gastritis_duration,
     created_at,
     updated_at
 ) VALUES (
-             '123e4567-e89b-12d3-a456-426614174000',
-             'testuser',
-             'testuser@example.com',
-             decode('a12b3c4d5e6f7890abcd1234567890ef', 'hex'), -- Valid hash
-             decode('c3d4e5f607a8b9c123456789abcdef01', 'hex'), -- Valid salt
+             gen_random_uuid(), -- Generate a new random UUID
+             'John Doe',
+             'johndoe@example.com',
+             decode('5f4dcc3b5aa765d61d8327deb882cf99', 'hex'),
+             decode('1234567890abcdef1234567890abcdef', 'hex'),
              30,
              'Male',
              1.75,
              70.5,
-             'Moderately Active',
-             'Mexican',
-             'Balanced',
              'One year and a half',
              NOW(),
              NOW()

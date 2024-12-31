@@ -4,20 +4,17 @@
 -- Create users table
 CREATE TABLE IF NOT EXISTS users (
                                      id UUID PRIMARY KEY,
-                                     username VARCHAR(50) NOT NULL,
+                                     name VARCHAR(50) NOT NULL, -- The name of the patient/user
     email VARCHAR(255) UNIQUE NOT NULL,
-    age INTEGER,
-    gender VARCHAR(20),
+    stored_hash BYTEA NOT NULL, -- Store hashed password
+    stored_salt BYTEA NOT NULL, -- Store salt for password hashing
+    age INTEGER, -- Optional age of the user
+    gender VARCHAR(20), -- Gender of the user
     height DECIMAL(5, 2), -- Height in meters
     weight DECIMAL(5, 2), -- Weight in kilograms
-    activity_level VARCHAR(50), -- e.g., "Sedentary", "Moderately Active"
-    nationality VARCHAR(100),
-    diet_type VARCHAR(100), -- e.g., "Vegetarian", "Meat-based"
-    gastritis_duration VARCHAR(50), -- Duration information
+    gastritis_duration VARCHAR(50), -- Duration of gastritis (e.g., "1 year")
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Auto-populate on creation
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Auto-update on modification
-    stored_hash BYTEA NOT NULL, -- Store hashed password
-    stored_salt BYTEA NOT NULL -- Store salt for password hashing
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP -- Auto-update on modification
     );
 
 -- Create food_symptom_logs table
