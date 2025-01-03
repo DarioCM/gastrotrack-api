@@ -24,4 +24,4 @@ INSERT INTO users (
              'One year and a half',
              NOW(),
              NOW()
-         );
+         )  ON CONFLICT (email) DO NOTHING;

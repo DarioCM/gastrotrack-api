@@ -10,7 +10,7 @@ public class UserDto  {
 
         private UUID id;
 
-        private String username;
+        private String name;
 
         //private String password;
 
