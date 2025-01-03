@@ -30,12 +30,12 @@ public class UserEntity {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @NotNull
     @Lob
+    @Column(nullable = false)
     private byte[] storedHash;
 
-    @NotNull
     @Lob
+    @Column(nullable = false)
     private byte[] storedSalt;
 
     private Integer age;

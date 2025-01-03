@@ -4,6 +4,7 @@ import dev.dario.gastrotrackapi.user.dto.UserDto;
 import dev.dario.gastrotrackapi.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @AllArgsConstructor
+@Slf4j
 public class UserController {
 
     private final UserService userService;
@@ -38,6 +40,8 @@ public class UserController {
     public ResponseEntity<UserDto> postUser(
             @Valid @RequestBody UserDto userDto
     ) throws NoSuchAlgorithmException, BadRequestException {
+
+        log.info("Creating user : {} ", userDto);
 
         var dto = userService.createUser(userDto, userDto.getPassword());
 

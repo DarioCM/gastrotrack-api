@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
                                      id UUID PRIMARY KEY,
                                      name VARCHAR(50) NOT NULL, -- The name of the patient/user
     email VARCHAR(255) UNIQUE NOT NULL,
-    stored_hash BYTEA NOT NULL, -- Store hashed password
+    stored_hash BYTEA NOT NULL, -- Store hash for password hashing
     stored_salt BYTEA NOT NULL, -- Store salt for password hashing
     age INTEGER, -- Optional age of the user
     gender VARCHAR(20), -- Gender of the user

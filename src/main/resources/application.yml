@@ -1,19 +1,24 @@
 spring:
   application:
     name: gastrotrack-api
+  profiles:
+    active: dev
   datasource:
     url: jdbc:postgresql://localhost:5433/gastrotrackdb
     username: postgres
     password: password
   sql:
     init:
-      mode: always # Ensures schema.sql runs on app startup
+      mode: always # Ensures __schema.sql runs on app startup
   jpa:
     hibernate:
-      ddl-auto: none # Prevent Hibernate from auto-creating tables
+      ddl-auto: update # Automatically update schema based on entities
     show-sql: true # Show SQL queries in logs
     properties:
-      hibernate.format_sql: true
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        type.descriptor.sql.trace: true
     logging:
       level:
         org.hibernate.SQL: DEBUG

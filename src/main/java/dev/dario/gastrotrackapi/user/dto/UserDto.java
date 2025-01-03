@@ -35,14 +35,6 @@ public class UserDto  {
         @DecimalMax(value = "500.0", inclusive = true, message = "Weight must be less than 500 kg")
         private Double weight;
 
-        @NotBlank(message = "Activity level is required")
-        private String activityLevel;
-
-        @NotBlank(message = "Nationality is required")
-        private String nationality;
-
-        @NotBlank(message = "Diet type is required")
-        private String dietType;
 
         @NotNull(message = "Gastritis duration is required")
         private String gastritisDuration;

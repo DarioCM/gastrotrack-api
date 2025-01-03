@@ -5,6 +5,7 @@ import dev.dario.gastrotrackapi.user.dto.UserDto;
 import dev.dario.gastrotrackapi.user.entity.UserEntity;
 import dev.dario.gastrotrackapi.jpa.repository.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class UserService {
 
 
@@ -71,7 +73,7 @@ public class UserService {
     // create salt
     private byte[] createSalt(){
         var random = new SecureRandom();
-        var salt = new byte[128];
+        var salt = new byte[16];
         random.nextBytes(salt);
         return salt;
     }
@@ -84,7 +86,7 @@ public class UserService {
         md.update(salt);
 
         return md.digest(
-                password.getBytes(StandardCharsets.UTF_8));
+                password.getBytes());
 
     }
 
@@ -109,6 +111,8 @@ public class UserService {
 
         user.setStoredSalt(salt);
         user.setStoredHash(hashedPassword);
+
+        log.info("Creating user Entity > : {} ", user);
 
         repository.save(user);
 
