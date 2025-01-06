@@ -59,13 +59,13 @@ public class UserService {
     }
 
     // retrives a user by their email
-    public UserDto getUserByEmail(String email) {
-        var user =
+    public UserEntity getUserByEmail(String email) {
+        var userEntity =
                 Optional.ofNullable(
                         repository.findByEmail(email))
                 .orElseThrow(() -> new NotFoundException(
                         "User by email " + email + " was not found"));
-        return convertToDto(user);
+        return userEntity;
     }
 
     //creating a new User
