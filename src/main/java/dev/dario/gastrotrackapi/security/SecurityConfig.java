@@ -31,7 +31,9 @@ public class SecurityConfig {
 
                 // Authorize requests
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/authenticate").permitAll() // Allow public access to /authenticate
+                        .requestMatchers(
+                                "/authenticate",
+                                "/register").permitAll() // Allow public access to /authenticate
                         .anyRequest().authenticated() // Require authentication for all other endpoints
                 )
 

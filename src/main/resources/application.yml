@@ -7,6 +7,8 @@ spring:
     url: jdbc:postgresql://localhost:5433/gastrotrackdb
     username: postgres
     password: password
+    hikari:
+      auto-commit: false
   sql:
     init:
       mode: always # Ensures __schema.sql runs on app startup

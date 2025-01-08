@@ -11,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/daily-diet-logs")
 @RequiredArgsConstructor
 @Log4j2
+@PreAuthorize("isAuthenticated()")
 public class DailyDietLogController {
 
     private final DailyDietLogService service;

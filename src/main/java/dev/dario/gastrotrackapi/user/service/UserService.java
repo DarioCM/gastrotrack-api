@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -48,6 +49,7 @@ public class UserService {
     }
 
     // getting users by ID
+    @Transactional
     public UserDto findUserById(final UUID id) {
         var user = repository
                 .findById(id)
@@ -59,6 +61,7 @@ public class UserService {
     }
 
     // retrives a user by their email
+    @Transactional
     public UserEntity getUserByEmail(String email) {
         var userEntity =
                 Optional.ofNullable(
