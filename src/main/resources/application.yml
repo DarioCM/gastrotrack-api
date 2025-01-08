@@ -46,6 +46,6 @@ springdoc:
     path: /swagger-ui.html
 
 jwt:
-  secret: r8h0cP8eSKQmTwnVw+NjIshzj3hU1Fqxz7dLWAXv9Jo=
+  secret: 
 
 
