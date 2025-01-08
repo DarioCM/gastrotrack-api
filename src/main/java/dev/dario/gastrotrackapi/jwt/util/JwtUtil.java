@@ -4,6 +4,8 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -13,16 +15,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import static javax.crypto.Cipher.SECRET_KEY;
-
 @Service
 public class JwtUtil {
 
-    // Define a static secret key (should ideally be stored securely)
-    private static final String SECRET_KEY = "your-256-bit-secret-your-256-bit-secret"; // Must be 256 bits
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10 hours
+    @Value("${jwt.secret}")
+    private String SECRET_KEY;
 
-    private final Key key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes()); // Use a consistent key
+    private Key key;
+
+    @PostConstruct
+    public void init() {
+        if (SECRET_KEY == null || SECRET_KEY.isEmpty()) {
+            throw new IllegalStateException("SECRET_KEY must not be null or empty");
+        }
+        this.key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+    }
+
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10 hours
 
     public String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
@@ -35,10 +44,9 @@ public class JwtUtil {
     }
 
     public String generateToken(UserDetails userDetails) {
-        Map<String,Object> claims = new HashMap<>();
+        Map<String, Object> claims = new HashMap<>();
         return createToken(claims, userDetails.getUsername());
     }
-
 
     public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
         final Claims claims = extractAllClaims(token);
@@ -48,9 +56,9 @@ public class JwtUtil {
     private Claims extractAllClaims(String token) {
         return Jwts
                 .parserBuilder()
-                .setSigningKey(SECRET_KEY)
+                .setSigningKey(key)
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody();
     }
 
@@ -67,15 +75,7 @@ public class JwtUtil {
     }
 
     public Boolean validateToken(String token, UserDetails userDetails) {
-        final String username =    extractUserName(token);
-        return (
-                username.equals(userDetails.getUsername())
-                && !isTokenExpired(token));
+        final String username = extractUserName(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
     }
-
-
-
-
-
-
 }

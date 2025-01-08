@@ -1,63 +1,31 @@
 spring:
   application:
     name: gastrotrack-api
-
   datasource:
-    url: jdbc:postgresql://your-production-db-host:5432/yourdbname # Replace with your production DB host and name
-    username: yourusername # Replace with your DB username
-    password: yourpassword # Replace with your DB password
-    driver-class-name: org.postgresql.Driver # Ensures PostgreSQL driver is used
-
+    url: jdbc:postgresql://your-production-database-url:5432/your-database-name
+    username: your-db-username
+    password: your-db-password
   jpa:
     hibernate:
-      ddl-auto: validate # Validate the schema without making changes (recommended for production)
-    show-sql: false       # Disable SQL logging for performance and security
+      ddl-auto: validate # Use `validate` to ensure schema matches the entity but doesn't modify the database
+    show-sql: false # Disable SQL logging in production
     properties:
       hibernate:
+        format_sql: false
         dialect: org.hibernate.dialect.PostgreSQLDialect
-        format_sql: false # Disable SQL formatting to reduce log clutter
-
-  logging:
-    level:
-      org.hibernate.SQL: WARN  # Reduce log verbosity
-      org.hibernate.type.descriptor.sql: WARN # Reduce verbosity for Hibernate parameter logs
-
   data:
     redis:
-      host: your-redis-host # Replace with your Redis host (use a production-ready Redis instance)
-      port: 6379           # Default Redis port
-      password: your-redis-password # Add Redis password if authentication is required
+      host: redis-prod-url
+      port: 6379
 
 server:
-  port: 8080 # Standard production port
-  ssl:
-    enabled: true # Enable HTTPS in production
-    key-store: path/to/keystore.p12 # Path to your SSL keystore
-    key-store-password: your-keystore-password # Keystore password
-    key-store-type: PKCS12 # Keystore type
+  port: 8085
 
 springdoc:
   api-docs:
-    path: /v3/api-docs # OpenAPI endpoint
+    path: /v3/api-docs
   swagger-ui:
-    path: /swagger-ui.html # Swagger UI endpoint
-  enable: false # Disable Swagger UI in production for security (optional)
+    path: /swagger-ui.html
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info # Expose only essential endpoints
-  security:
-    enabled: true
-
-security:
-  oauth2:
-    resourceserver:
-      jwt:
-        issuer-uri: https://your-issuer.com # Replace with your JWT issuer URI
-    client:
-      registration:
-        your-client-id:
-          client-id: your-client-id
-          client-secret: your-client-secret
+jwt:
+  secret: your-256-bit-secret-your-256-bit-secret

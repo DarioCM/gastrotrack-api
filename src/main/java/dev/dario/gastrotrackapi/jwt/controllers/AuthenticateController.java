@@ -44,9 +44,10 @@ public class AuthenticateController {
 
         var userDetails =
                 userDetailsService.loadUserByUsername(user.getEmail());
-        log.info(userDetails.toString());
+        log.info("Authenticated :" + userDetails.toString());
 
         var jwt = jwtTokenUtil.generateToken(userDetails);
+        log.info("JWT : " + jwt);
 
         return new AuthenticationResponse(jwt);
 
