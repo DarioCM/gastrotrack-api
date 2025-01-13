@@ -1,9 +1,9 @@
 package dev.dario.gastrotrackapi.user.service;
 
 import dev.dario.gastrotrackapi.exception.NotFoundException;
+import dev.dario.gastrotrackapi.jpa.repository.UserRepository;
 import dev.dario.gastrotrackapi.user.dto.UserDto;
 import dev.dario.gastrotrackapi.user.entity.UserEntity;
-import dev.dario.gastrotrackapi.jpa.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
@@ -11,7 +11,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -49,7 +48,7 @@ public class UserService {
     }
 
     // getting users by ID
-    @Transactional
+    @Transactional(readOnly = true)
     public UserDto findUserById(final UUID id) {
         var user = repository
                 .findById(id)
@@ -61,7 +60,7 @@ public class UserService {
     }
 
     // retrives a user by their email
-    @Transactional
+    @Transactional(readOnly = true)
     public UserEntity getUserByEmail(String email) {
         var userEntity =
                 Optional.ofNullable(
@@ -82,18 +81,18 @@ public class UserService {
     }
 
     // hash the user password
-    private byte[] createPasswordHash(String password, byte[] salt)
-        throws NoSuchAlgorithmException {
-
-        var md = MessageDigest.getInstance("SHA-512");
-        md.update(salt);
-
-        return md.digest(
-                password.getBytes());
-
+    private byte[] createPasswordHash(String password, byte[] salt) {
+        try {
+            var md = MessageDigest.getInstance("SHA-512");
+            md.update(salt);
+            return md.digest(password.getBytes());
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException("Hashing algorithm not found", e);
+        }
     }
 
     // create user
+    @Transactional
     public UserDto createUser(UserDto userDto, String password)
             throws NoSuchAlgorithmException, BadRequestException {
 
@@ -123,9 +122,9 @@ public class UserService {
     }
 
     //update user
-    public void updateUser(UUID id, UserDto userDto, String password)
-        throws NoSuchAlgorithmException {
-
+    // update user
+    @Transactional
+    public void updateUser(UUID id, UserDto userDto, String password) {
         var user = findOrThrow(id);
         var userParam = convertToEntity(userDto);
 
@@ -137,7 +136,7 @@ public class UserService {
         user.setWeight(userParam.getWeight());
         user.setGastritisDuration(userParam.getGastritisDuration());
 
-        if (!password.isBlank()) {
+        if (password != null && !password.isBlank()) {
             byte[] salt = createSalt();
             byte[] hashedPassword = createPasswordHash(password, salt);
             user.setStoredSalt(salt);
@@ -145,10 +144,11 @@ public class UserService {
         }
 
         repository.save(user);
-
     }
 
+
     // remove user by id
+    @Transactional
     public void removeUserById(UUID id) {
         findOrThrow(id);
         repository.deleteById(id);

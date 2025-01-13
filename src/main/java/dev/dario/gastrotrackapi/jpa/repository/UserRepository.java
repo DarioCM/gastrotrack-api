@@ -11,7 +11,6 @@ public interface UserRepository
         extends JpaRepository<UserEntity, UUID> {
 
     @Query(
-            "" +
             "SELECT CASE WHEN COUNT(u) > 0 THEN " +
             "TRUE ELSE FALSE END " +
             "FROM UserEntity u " +
