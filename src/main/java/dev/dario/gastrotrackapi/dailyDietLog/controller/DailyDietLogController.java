@@ -69,12 +69,14 @@ public class DailyDietLogController {
     }
 
     // POST a new daily diet log
-    // POST  /api/v1/daily-diet-logs
+    // POST  /api/v1/daily-diet-logs/{id}
     @PostMapping("/{id}")
     public ResponseEntity<DailyDietLogDto> addDailyDietLog(
             @PathVariable("id") UUID userId,
             @Valid @RequestBody DailyDietLogDto dto) {
 
+        // Validate user existence
+        userService.findOrThrow(userId);
         dto.setUserId(userId);
         log.info("Adding daily diet log DTO enter: {}", dto);
         var entity = convertToEntity(dto);

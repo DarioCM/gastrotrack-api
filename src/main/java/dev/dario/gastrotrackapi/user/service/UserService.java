@@ -154,7 +154,7 @@ public class UserService {
         repository.deleteById(id);
     }
 
-    private UserEntity findOrThrow(UUID id) {
+    public UserEntity findOrThrow(UUID id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(
                         "User by id " + id + " was not found"));
