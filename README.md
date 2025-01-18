@@ -1,26 +1,32 @@
 # GastroTrack API
 
-**GastroTrack** is a RESTful API built with **Spring Boot** to help individuals with gastritis track their food intake and identify ingredients or dishes that trigger symptoms. It provides insights to help users manage their health effectively.
+GastroTrack API is a RESTful backend application designed to help users monitor and manage their gastritis symptoms and food intake. Built with Spring Boot, PostgreSQL, and Redis, it provides endpoints for logging daily meals, tracking symptoms, and generating meaningful insights into gastritis triggers.
 
 ---
 
 ## Features
-- **User Management**: Secure user registration and authentication (JWT & OAuth2).
-- **Food & Symptom Logging**: Track individual foods or dishes and associated symptoms.
-- **Daily Diet Logs**: Maintain daily logs of meals.
-- **Data Persistence**: PostgreSQL for structured storage and Redis for caching.
-- **Containerization**: Docker Compose to simplify environment setup.
+
+- **User Management**: Add and manage user accounts with secure password hashing.
+- **Daily Diet Logs**: Track meals with notes and timestamps.
+- **Symptom Logs**: Log symptoms related to food triggers.
+- **JWT Authentication**: Secure access to endpoints using JSON Web Tokens.
+- **TestContainers Integration**: Isolated integration testing environment using TestContainers.
+- **Custom Logging**: Log requests and responses for debugging and analysis.
+- **AI Integration (Planned)**: Leverage **Spring AI** to provide:
+  - **Diagnostics**: AI-powered suggestions for potential gastritis triggers based on user data.
+  - **Custom Recipes**: Personalized meal recommendations to avoid trigger foods and manage symptoms better.
 
 ---
 
-## Tech Stack
-- **Java 17**
-- **Spring Boot 3.4.0**
-- **PostgreSQL**
-- **Redis**
-- **Lombok**
-- **Spring Security (JWT & OAuth2)**
-- **Docker Compose**
+## Technologies Used
+
+- **Backend**: Spring Boot (Java 17)
+- **Database**: PostgreSQL
+- **Caching**: Redis
+- **Authentication**: Spring Security with JWT
+- **AI (Planned)**: Spring AI for diagnostics and personalized recommendations.
+- **Testing**: JUnit 5, MockMvc, and TestContainers
+- **Dependency Management**: Maven
 
 ---
 
