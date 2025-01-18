@@ -20,6 +20,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -44,6 +45,7 @@ public class DailyDietLogRepositoryTest {
     JdbcConnectionDetails  jdbcConnectionDetails;
 
     private UserEntity testUser;
+    private DailyDietLogEntity log;
 
     @BeforeEach
     @Transactional
@@ -63,7 +65,7 @@ public class DailyDietLogRepositoryTest {
         userRepository.save(testUser);
 
         // Create and save a DailyDietLogEntity
-        DailyDietLogEntity log = new DailyDietLogEntity();
+        log = new DailyDietLogEntity();
         log.setDate(LocalDate.now());
         log.setMeals("Breakfast");
         log.setNotes("Test notes");
@@ -79,8 +81,31 @@ public class DailyDietLogRepositoryTest {
         assertThat(logs.get(0).getMeals()).isEqualTo("Breakfast");
     }
 
+    @Test
+    void testFindLogsByDate() {
+        List<DailyDietLogEntity> logs = repository.findAllByUserId(testUser.getId());
+        assertThat(logs).isNotEmpty();
+        assertThat(logs.get(0).getDate()).isEqualTo(LocalDate.now());
+    }
+
+    @Test
+    void testUpdateLog() {
+        log.setMeals("Updated Breakfast");
+        repository.save(log);
+
+        Optional<DailyDietLogEntity> updatedLog = repository.findById(log.getId());
+        assertThat(updatedLog).isPresent();
+        assertThat(updatedLog.get().getMeals()).isEqualTo("Updated Breakfast");
+    }
 
 
+    @Test
+    void testDeleteLog() {
+        repository.deleteById(log.getId());
+
+        Optional<DailyDietLogEntity> deletedLog = repository.findById(log.getId());
+        assertThat(deletedLog).isNotPresent();
+    }
 
 
 }

@@ -2,6 +2,7 @@ package dev.dario.gastrotrackapi.dailyDietLog;
 
 import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService;
+import dev.dario.gastrotrackapi.exception.NotFoundException;
 import dev.dario.gastrotrackapi.jpa.repository.DailyDietLogRepository;
 import dev.dario.gastrotrackapi.user.entity.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,9 +13,11 @@ import org.mockito.MockitoAnnotations;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 class DailyDietLogServiceTest {
@@ -63,4 +66,45 @@ class DailyDietLogServiceTest {
         verify(dailyDietLogRepository, times(1)).save(testLog);
     }
 
+    @Test
+    void testRemoveDailyDietLog() {
+        doNothing().when(dailyDietLogRepository).deleteById(testLog.getId());
+        when(dailyDietLogRepository.findById(testLog.getId())).thenReturn(Optional.of(testLog));
+
+        dailyDietLogService.removeDailyDietLog(testLog.getId());
+
+        verify(dailyDietLogRepository, times(1)).deleteById(testLog.getId());
+    }
+
+    @Test
+    void testUpdateDailyDietLog() {
+        when(dailyDietLogRepository.findById(testLog.getId())).thenReturn(Optional.of(testLog));
+        when(dailyDietLogRepository.save(any(DailyDietLogEntity.class))).thenReturn(testLog);
+
+        testLog.setMeals("Updated Lunch");
+        dailyDietLogService.updateDailyDietLog(testLog.getId(), testLog);
+
+        verify(dailyDietLogRepository, times(1)).save(testLog);
+        assertThat(testLog.getMeals()).isEqualTo("Updated Lunch");
+    }
+
+    @Test
+    void testRemoveDailyDietLog_NotFound() {
+        when(dailyDietLogRepository.findById(testLog.getId())).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> dailyDietLogService.removeDailyDietLog(testLog.getId()))
+                .isInstanceOf(NotFoundException.class);
+
+        verify(dailyDietLogRepository, never()).deleteById(testLog.getId());
+    }
+
+    @Test
+    void testUpdateDailyDietLog_NotFound() {
+        when(dailyDietLogRepository.findById(testLog.getId())).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> dailyDietLogService.updateDailyDietLog(testLog.getId(), testLog))
+                .isInstanceOf(NotFoundException.class);
+
+        verify(dailyDietLogRepository, never()).save(testLog);
+    }
 }
