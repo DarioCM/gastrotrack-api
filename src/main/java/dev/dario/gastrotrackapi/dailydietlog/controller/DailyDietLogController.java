@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
+
+import org.springframework.data.domain.PageImpl;
+
+
 
 @RestController
 @RequestMapping("/api/v1/daily-diet-logs")
@@ -44,7 +49,7 @@ public class DailyDietLogController {
     // Get all logs for a user
     // GET /api/v1/daily-diet-logs/123e4567-e89b-12d3-a456-426614174000
     @GetMapping("/{userId}")
-    public ResponseEntity<List<DailyDietLogDto>> getAllByUserId(
+    public Page<DailyDietLogDto> getAllByUserId(
             @PathVariable UUID userId,
             Pageable pageable) {
 
@@ -65,7 +70,7 @@ public class DailyDietLogController {
                 .skip(toSkip).limit(pageable.getPageSize())
                 .collect(Collectors.toList());
 
-        return ResponseEntity.ok(dtoList);
+        return new PageImpl<>(dtoList, pageable, logs.size());
     }
 
     // POST a new daily diet log
