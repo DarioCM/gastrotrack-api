@@ -92,8 +92,8 @@ org.postgresql.util.PSQLException: ERROR: null value in column "date" of relatio
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.save(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:24) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:58) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:24) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:58) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -244,8 +244,8 @@ org.postgresql.util.PSQLException: ERROR: null value in column "date" of relatio
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.save(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:27) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:58) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:27) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:58) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -396,8 +396,8 @@ org.postgresql.util.PSQLException: ERROR: null value in column "date" of relatio
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.save(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:26) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:59) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:26) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:59) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -490,15 +490,15 @@ org.postgresql.util.PSQLException: ERROR: null value in column "date" of relatio
 2024-12-20 18:06:21 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
 2024-12-20 18:06:21 WARN  AnnotationConfigServletWebServerApplicationContext:635 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyDietLogController' defined in file [/Users/darko/Documents/sprigboot/workspace/gastrotrack-api/target/classes/dev/dario/gastrotrackapi/dailyDietLog/controller/DailyDietLogController.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'modelMapper' defined in class path resource [dev/dario/gastrotrackapi/config/ModelMapperConfig.class]: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 2024-12-20 18:06:21 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -511,15 +511,15 @@ Error starting ApplicationContext. To display the condition evaluation report re
 2024-12-20 18:06:22 ERROR SpringApplication:857 - Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyDietLogController' defined in file [/Users/darko/Documents/sprigboot/workspace/gastrotrack-api/target/classes/dev/dario/gastrotrackapi/dailyDietLog/controller/DailyDietLogController.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'modelMapper' defined in class path resource [dev/dario/gastrotrackapi/config/ModelMapperConfig.class]: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.0.jar:6.2.0]
@@ -551,15 +551,15 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) [spring-boot-devtools-3.4.0.jar:3.4.0]
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'modelMapper' defined in class path resource [dev/dario/gastrotrackapi/config/ModelMapperConfig.class]: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.0.jar:6.2.0]
@@ -580,15 +580,15 @@ Caused by: org.springframework.beans.factory.BeanCreationException: Error creati
 	... 26 more
 Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:199) ~[spring-beans-6.2.0.jar:6.2.0]
@@ -612,15 +612,15 @@ Caused by: org.springframework.beans.BeanInstantiationException: Failed to insta
 	... 26 more
 Caused by: org.modelmapper.ConfigurationException: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.modelmapper.internal.Errors.throwConfigurationExceptionIfErrorsExist(Errors.java:240) ~[modelmapper-3.2.0.jar:?]
@@ -701,15 +701,15 @@ Caused by: org.modelmapper.ConfigurationException: ModelMapper configuration err
 2024-12-20 18:09:15 INFO  LocalContainerEntityManagerFactoryBean:447 - Initialized JPA EntityManagerFactory for persistence unit 'default'
 2024-12-20 18:09:15 WARN  AnnotationConfigServletWebServerApplicationContext:635 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyDietLogController' defined in file [/Users/darko/Documents/sprigboot/workspace/gastrotrack-api/target/classes/dev/dario/gastrotrackapi/dailyDietLog/controller/DailyDietLogController.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'modelMapper' defined in class path resource [dev/dario/gastrotrackapi/config/ModelMapperConfig.class]: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 2024-12-20 18:09:15 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -722,15 +722,15 @@ Error starting ApplicationContext. To display the condition evaluation report re
 2024-12-20 18:09:15 ERROR SpringApplication:857 - Application run failed
 org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dailyDietLogController' defined in file [/Users/darko/Documents/sprigboot/workspace/gastrotrack-api/target/classes/dev/dario/gastrotrackapi/dailyDietLog/controller/DailyDietLogController.class]: Unsatisfied dependency expressed through constructor parameter 1: Error creating bean with name 'modelMapper' defined in class path resource [dev/dario/gastrotrackapi/config/ModelMapperConfig.class]: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:804) ~[spring-beans-6.2.0.jar:6.2.0]
@@ -762,15 +762,15 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) [spring-boot-devtools-3.4.0.jar:3.4.0]
 Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'modelMapper' defined in class path resource [dev/dario/gastrotrackapi/config/ModelMapperConfig.class]: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.0.jar:6.2.0]
@@ -791,15 +791,15 @@ Caused by: org.springframework.beans.factory.BeanCreationException: Error creati
 	... 26 more
 Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.modelmapper.ModelMapper]: Factory method 'modelMapper' threw exception with message: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:199) ~[spring-beans-6.2.0.jar:6.2.0]
@@ -823,15 +823,15 @@ Caused by: org.springframework.beans.BeanInstantiationException: Failed to insta
 	... 26 more
 Caused by: org.modelmapper.ConfigurationException: ModelMapper configuration errors:
 
-1) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+1) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-2) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+2) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-3) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+3) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-4) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+4) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
-5) Cannot map final type dev.dario.gastrotrackapi.dailyDietLog.record.DailyDietLogDto.
+5) Cannot map final type dev.dario.gastrotrackapi.dailydietlog.record.DailyDietLogDto.
 
 5 errors
 	at org.modelmapper.internal.Errors.throwConfigurationExceptionIfErrorsExist(Errors.java:240) ~[modelmapper-3.2.0.jar:?]
@@ -970,8 +970,8 @@ org.postgresql.util.PSQLException: ERROR: null value in column "date" of relatio
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.save(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:26) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:59) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.addDailyDietLog(DailyDietLogService.java:26) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:59) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -1621,8 +1621,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -1763,8 +1763,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -1896,8 +1896,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -2038,8 +2038,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -2171,8 +2171,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -2313,8 +2313,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -2497,8 +2497,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -2639,8 +2639,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -2865,8 +2865,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -3007,8 +3007,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy145.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:21) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -3189,8 +3189,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -3331,8 +3331,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -3464,8 +3464,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -3606,8 +3606,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -3739,8 +3739,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -3881,8 +3881,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -4014,8 +4014,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -4156,8 +4156,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -4289,8 +4289,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -4431,8 +4431,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -4613,8 +4613,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -4755,8 +4755,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -4983,8 +4983,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -5125,8 +5125,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -5308,8 +5308,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -5450,8 +5450,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -5635,8 +5635,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -5777,8 +5777,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -5962,8 +5962,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -6104,8 +6104,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -6237,8 +6237,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -6379,8 +6379,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy146.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:22) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:51) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -6528,7 +6528,7 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:102) [hibernate-core-6.6.2.Final.jar:6.6.2.Final]
 	at dev.dario.gastrotrackapi.user.entity.UserEntity$HibernateProxy$MnVsmtxt.toString(Unknown Source) [classes/:?]
 	at java.base/java.lang.StringConcatHelper.stringOf(StringConcatHelper.java:453) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity.toString(DailyDietLogEntity.java:14) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity.toString(DailyDietLogEntity.java:14) [classes/:?]
 	at org.apache.logging.log4j.message.ParameterFormatter.tryObjectToString(ParameterFormatter.java:600) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.message.ParameterFormatter.recursiveDeepToString(ParameterFormatter.java:450) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.message.ParameterFormatter.appendCollection(ParameterFormatter.java:577) [log4j-api-2.24.1.jar:2.24.1]
@@ -6563,7 +6563,7 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.apache.logging.log4j.spi.AbstractLogger.logMessage(AbstractLogger.java:2635) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.spi.AbstractLogger.logIfEnabled(AbstractLogger.java:2400) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.spi.AbstractLogger.info(AbstractLogger.java:1752) [log4j-api-2.24.1.jar:2.24.1]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:53) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:53) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -6668,7 +6668,7 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.hibernate.proxy.ProxyConfiguration$InterceptorDispatcher.intercept(ProxyConfiguration.java:102) [hibernate-core-6.6.2.Final.jar:6.6.2.Final]
 	at dev.dario.gastrotrackapi.user.entity.UserEntity$HibernateProxy$MnVsmtxt.toString(Unknown Source) [classes/:?]
 	at java.base/java.lang.StringConcatHelper.stringOf(StringConcatHelper.java:453) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity.toString(DailyDietLogEntity.java:14) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity.toString(DailyDietLogEntity.java:14) [classes/:?]
 	at org.apache.logging.log4j.message.ParameterFormatter.tryObjectToString(ParameterFormatter.java:600) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.message.ParameterFormatter.recursiveDeepToString(ParameterFormatter.java:450) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.message.ParameterFormatter.appendCollection(ParameterFormatter.java:577) [log4j-api-2.24.1.jar:2.24.1]
@@ -6703,7 +6703,7 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.apache.logging.log4j.spi.AbstractLogger.logMessage(AbstractLogger.java:2635) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.spi.AbstractLogger.logIfEnabled(AbstractLogger.java:2400) [log4j-api-2.24.1.jar:2.24.1]
 	at org.apache.logging.log4j.spi.AbstractLogger.info(AbstractLogger.java:1752) [log4j-api-2.24.1.jar:2.24.1]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:53) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:53) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -6815,10 +6815,10 @@ Caused by: java.io.StreamCorruptedException: invalid stream header: 32207965
 2024-12-20 20:03:38 INFO  DailyDietLogController:65 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T20:03:38.935184}
 2024-12-20 20:03:39 ERROR [dispatcherServlet]:175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.modelmapper.MappingException: ModelMapper mapping errors:
 
-1) Failed to instantiate instance of destination dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto. Ensure that dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto has a non-private no-argument constructor.
+1) Failed to instantiate instance of destination dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto. Ensure that dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto has a non-private no-argument constructor.
 
 1 error] with root cause
-java.lang.NoSuchMethodException: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto.<init>()
+java.lang.NoSuchMethodException: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto.<init>()
 	at java.base/java.lang.Class.getConstructor0(Class.java:3585) ~[?:?]
 	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754) ~[?:?]
 	at org.modelmapper.internal.MappingEngineImpl.instantiate(MappingEngineImpl.java:336) ~[modelmapper-3.2.0.jar:?]
@@ -6828,8 +6828,8 @@ java.lang.NoSuchMethodException: dev.dario.gastrotrackapi.dailyDietLog.dto.Daily
 	at org.modelmapper.internal.MappingEngineImpl.map(MappingEngineImpl.java:71) ~[modelmapper-3.2.0.jar:?]
 	at org.modelmapper.ModelMapper.mapInternal(ModelMapper.java:589) ~[modelmapper-3.2.0.jar:?]
 	at org.modelmapper.ModelMapper.map(ModelMapper.java:422) ~[modelmapper-3.2.0.jar:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.convertToDto(DailyDietLogController.java:32) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:67) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.convertToDto(DailyDietLogController.java:32) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.addDailyDietLog(DailyDietLogController.java:67) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -6961,8 +6961,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -7103,8 +7103,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -7205,7 +7205,7 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 2024-12-20 20:07:25 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-12-20 20:07:25 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2024-12-20 20:07:25 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2024-12-20 20:07:26 INFO  DailyDietLogController:63 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@61e3a040
+2024-12-20 20:07:26 INFO  DailyDietLogController:63 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@61e3a040
 2024-12-20 20:07:26 INFO  DailyDietLogController:65 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T20:07:26.100884}
 2024-12-20 20:07:52 INFO  DefaultLoadEventListener:116 - HHH000327: Error performing load command
 org.hibernate.type.SerializationException: could not deserialize
@@ -7288,8 +7288,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -7430,8 +7430,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -7613,8 +7613,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -7755,8 +7755,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -7888,8 +7888,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -8030,8 +8030,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy147.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -8132,7 +8132,7 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 2024-12-20 20:35:17 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-12-20 20:35:17 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2024-12-20 20:35:17 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
-2024-12-20 20:35:17 INFO  DailyDietLogController:63 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@5e2be096
+2024-12-20 20:35:17 INFO  DailyDietLogController:63 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@5e2be096
 2024-12-20 20:35:17 INFO  DailyDietLogController:65 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T20:35:17.868954}
 2024-12-20 20:35:24 INFO  DefaultLoadEventListener:116 - HHH000327: Error performing load command
 org.hibernate.type.SerializationException: could not deserialize
@@ -8215,8 +8215,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -8357,8 +8357,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -8490,8 +8490,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -8632,8 +8632,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:23) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -8815,8 +8815,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -8957,8 +8957,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:45) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -9140,8 +9140,8 @@ org.hibernate.type.SerializationException: could not deserialize
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) [spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) [spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) [?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) [classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) [classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) [classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -9282,8 +9282,8 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.0.jar:6.2.0]
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.2.0.jar:6.2.0]
 	at jdk.proxy4/jdk.proxy4.$Proxy149.findAllByUserId(Unknown Source) ~[?:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) ~[classes/:?]
-	at dev.dario.gastrotrackapi.dailyDietLog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService.findAllByUserId(DailyDietLogService.java:24) ~[classes/:?]
+	at dev.dario.gastrotrackapi.dailydietlog.controller.DailyDietLogController.getAllByUserId(DailyDietLogController.java:46) ~[classes/:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?]
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
@@ -9488,19 +9488,19 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 2024-12-20 22:21:13 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-12-20 22:21:13 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2024-12-20 22:21:13 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2024-12-20 22:21:13 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@43d52161
+2024-12-20 22:21:13 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@43d52161
 2024-12-20 22:21:13 INFO  DailyDietLogController:68 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T22:21:13.601151}
 2024-12-20 22:21:21 INFO  DailyDietLogController:47 - Daily diet logs: [DailyDietLogEntity{id=d61b5865-c48f-43e4-a3bf-3b00dae5f3e2, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:34:00.585430}, DailyDietLogEntity{id=eda14604-d866-470e-8553-e2ffd986c489, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:43:30.888452}]
-2024-12-20 22:30:36 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@17ba1610
+2024-12-20 22:30:36 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@17ba1610
 2024-12-20 22:30:36 INFO  DailyDietLogController:68 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T22:30:36.492326}
 2024-12-20 22:30:58 INFO  DailyDietLogController:47 - Daily diet logs: [DailyDietLogEntity{id=d61b5865-c48f-43e4-a3bf-3b00dae5f3e2, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:34:00.585430}, DailyDietLogEntity{id=eda14604-d866-470e-8553-e2ffd986c489, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:43:30.888452}]
 2024-12-20 22:31:22 INFO  DailyDietLogController:47 - Daily diet logs: [DailyDietLogEntity{id=d61b5865-c48f-43e4-a3bf-3b00dae5f3e2, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:34:00.585430}, DailyDietLogEntity{id=eda14604-d866-470e-8553-e2ffd986c489, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:43:30.888452}]
-2024-12-20 22:32:09 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@6d97b28a
+2024-12-20 22:32:09 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@6d97b28a
 2024-12-20 22:32:09 INFO  DailyDietLogController:68 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T22:32:09.885297}
 2024-12-20 22:53:36 WARN  HikariPool:797 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m3s170ms).
-2024-12-20 22:55:10 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@c543c99
+2024-12-20 22:55:10 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@c543c99
 2024-12-20 22:55:10 INFO  DailyDietLogController:68 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T22:55:10.445547}
-2024-12-20 22:58:08 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@1f66649b
+2024-12-20 22:58:08 INFO  DailyDietLogController:66 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@1f66649b
 2024-12-20 22:58:08 INFO  DailyDietLogController:68 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T22:58:08.267954}
 2024-12-20 22:58:27 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
 2024-12-20 22:58:27 INFO  GracefulShutdown:76 - Graceful shutdown complete
@@ -9552,7 +9552,7 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 2024-12-20 23:08:33 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-12-20 23:08:33 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2024-12-20 23:08:33 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2024-12-20 23:08:33 INFO  DailyDietLogController:68 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@1a788044
+2024-12-20 23:08:33 INFO  DailyDietLogController:68 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@1a788044
 2024-12-20 23:08:33 INFO  DailyDietLogController:70 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T23:08:33.333870}
 2024-12-20 23:08:43 INFO  DailyDietLogController:47 - Daily diet logs: [DailyDietLogEntity{id=d61b5865-c48f-43e4-a3bf-3b00dae5f3e2, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:34:00.585430}, DailyDietLogEntity{id=eda14604-d866-470e-8553-e2ffd986c489, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:43:30.888452}, DailyDietLogEntity{id=1614ab02-d095-48ee-afc7-b3e75e1aa46e, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T23:08:33.333870}]
 2024-12-20 23:09:45 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
@@ -9605,7 +9605,7 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 2024-12-20 23:12:04 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-12-20 23:12:04 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2024-12-20 23:12:04 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2024-12-20 23:12:04 INFO  DailyDietLogController:69 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@41b4584a
+2024-12-20 23:12:04 INFO  DailyDietLogController:69 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@41b4584a
 2024-12-20 23:12:04 INFO  DailyDietLogController:71 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Chicken', typeMeal='Dinner', notes='Feel bad.', createdAt=2024-12-20T23:12:04.517531}
 2024-12-20 23:12:09 INFO  DailyDietLogController:47 - Daily diet logs: [DailyDietLogEntity{id=d61b5865-c48f-43e4-a3bf-3b00dae5f3e2, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:34:00.585430}, DailyDietLogEntity{id=eda14604-d866-470e-8553-e2ffd986c489, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:43:30.888452}, DailyDietLogEntity{id=1614ab02-d095-48ee-afc7-b3e75e1aa46e, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T23:08:33.333870}, DailyDietLogEntity{id=7ae1c328-22fd-4bbe-bc11-266755228ee7, date=2023-10-01, meals='Chicken', typeMeal='Dinner', notes='Feel bad.', createdAt=2024-12-20T23:12:04.517531}]
 2024-12-20 23:12:18 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
@@ -9658,7 +9658,7 @@ java.io.StreamCorruptedException: invalid stream header: 32207965
 2024-12-23 15:16:53 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-12-23 15:16:53 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2024-12-23 15:16:53 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2024-12-23 15:16:53 INFO  DailyDietLogController:72 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@5ebe56d1
+2024-12-23 15:16:53 INFO  DailyDietLogController:72 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@5ebe56d1
 2024-12-23 15:16:53 INFO  DailyDietLogController:74 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Chicken', typeMeal='Dinner', notes='Feel bad.', createdAt=2024-12-23T15:16:53.537098}
 2024-12-23 15:17:09 INFO  DailyDietLogController:48 - Daily diet logs: [DailyDietLogEntity{id=d61b5865-c48f-43e4-a3bf-3b00dae5f3e2, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:34:00.585430}, DailyDietLogEntity{id=eda14604-d866-470e-8553-e2ffd986c489, date=2023-10-01, meals='Eggs and toast', typeMeal='Breakfast', notes='Felt good today, no symptoms.', createdAt=2024-12-20T19:43:30.888452}, DailyDietLogEntity{id=1614ab02-d095-48ee-afc7-b3e75e1aa46e, date=2023-10-01, meals='Pizza', typeMeal='Lunch', notes='Felt bad.', createdAt=2024-12-20T23:08:33.333870}, DailyDietLogEntity{id=7ae1c328-22fd-4bbe-bc11-266755228ee7, date=2023-10-01, meals='Chicken', typeMeal='Dinner', notes='Feel bad.', createdAt=2024-12-20T23:12:04.517531}, DailyDietLogEntity{id=c80fea59-3d13-4d17-8920-4745e4f7e373, date=2023-10-01, meals='Chicken', typeMeal='Dinner', notes='Feel bad.', createdAt=2024-12-23T15:16:53.537098}]
 2024-12-23 15:17:16 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
@@ -14712,7 +14712,7 @@ Caused by: org.postgresql.util.PSQLException: ERROR: relation "users" does not e
 2025-01-03 22:27:44 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
 2025-01-03 22:27:44 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
 2025-01-03 22:27:44 INFO  StandardService:173 - Stopping service [Tomcat]
-2025-01-03 22:27:44 INFO  ConditionEvaluationReportLogger:82 - 
+2025-01-03 22:27:44 INFO  ConditionEvaluationReportLogger:82 -
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-03 22:27:44 ERROR SpringApplication:857 - Application run failed
@@ -14822,7 +14822,7 @@ Caused by: java.lang.ClassNotFoundException: org.hibernate.dialect.PostgreSQL82D
 2025-01-03 22:34:43 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-01-03 22:34:43 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2025-01-03 22:34:43 INFO  DispatcherServlet:554 - Completed initialization in 3 ms
-2025-01-03 22:34:43 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser2@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months) 
+2025-01-03 22:34:43 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser2@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months)
 2025-01-03 22:34:43 WARN  SqlExceptionHelper:145 - SQL Error: 0, SQLState: 42P01
 2025-01-03 22:34:43 ERROR SqlExceptionHelper:150 - ERROR: relation "users" does not exist
   Position: 66
@@ -15027,8 +15027,8 @@ org.postgresql.util.PSQLException: ERROR: relation "users" does not exist
 2025-01-03 22:37:49 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-01-03 22:37:49 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2025-01-03 22:37:49 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2025-01-03 22:37:49 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser2@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months) 
-2025-01-03 22:37:50 INFO  UserService:115 - Creating user Entity > : UserEntity(id=null, name=Test User, email=testuser2@example.com, storedHash=[84, -96, -63, -1, 121, -56, 41, 107, 109, -38, 93, -96, -64, -47, 114, -85, 109, 97, 92, 29, -44, -1, 37, 1, -63, -46, -89, -52, 84, -102, -44, -38, 68, 85, -86, 25, 0, 100, -32, 14, -115, 56, 126, 15, 115, -9, 121, 24, -103, 110, -102, -16, -75, -108, 11, -25, -123, -63, -9, 49, 60, -46, -127, 55], storedSalt=[-69, 126, -80, -18, 6, 28, -82, -33, -105, 38, 20, -9, -116, 22, -79, 11], age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months, createdAt=null, updatedAt=null) 
+2025-01-03 22:37:49 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser2@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months)
+2025-01-03 22:37:50 INFO  UserService:115 - Creating user Entity > : UserEntity(id=null, name=Test User, email=testuser2@example.com, storedHash=[84, -96, -63, -1, 121, -56, 41, 107, 109, -38, 93, -96, -64, -47, 114, -85, 109, 97, 92, 29, -44, -1, 37, 1, -63, -46, -89, -52, 84, -102, -44, -38, 68, 85, -86, 25, 0, 100, -32, 14, -115, 56, 126, 15, 115, -9, 121, 24, -103, 110, -102, -16, -75, -108, 11, -25, -123, -63, -9, 49, 60, -46, -127, 55], storedSalt=[-69, 126, -80, -18, 6, 28, -82, -33, -105, 38, 20, -9, -116, 22, -79, 11], age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months, createdAt=null, updatedAt=null)
 2025-01-03 22:48:30 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
 2025-01-03 22:48:30 INFO  GracefulShutdown:76 - Graceful shutdown complete
 2025-01-03 22:48:30 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -15081,10 +15081,10 @@ org.postgresql.util.PSQLException: ERROR: relation "users" does not exist
 2025-01-03 22:49:27 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-01-03 22:49:27 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2025-01-03 22:49:27 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2025-01-03 22:49:28 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser2@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months) 
+2025-01-03 22:49:28 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser2@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months)
 2025-01-03 22:49:28 WARN  ExceptionHandlerExceptionResolver:254 - Resolved [org.apache.coyote.BadRequestException: Email testuser2@example.comtaken]
-2025-01-03 22:49:38 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser4@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months) 
-2025-01-03 22:49:38 INFO  UserService:115 - Creating user Entity > : UserEntity(id=null, name=Test User, email=testuser4@example.com, storedHash=[-58, -105, -1, 75, 52, -75, -19, 26, -88, -68, 31, -61, 3, -98, -94, -30, -95, 29, 31, 64, 50, 46, 93, -64, -22, -113, -100, -79, -76, 71, -90, -111, -128, -117, -6, 99, -36, -82, -123, 1, 1, -94, 93, -115, -67, -120, -7, 48, 27, 22, -28, -46, 21, -42, -12, 116, -55, -75, -21, 56, -113, 63, -27, -5], storedSalt=[47, -13, -75, -101, -110, 45, -88, -14, -120, -112, 114, 7, -106, -33, -59, -118], age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months, createdAt=null, updatedAt=null) 
+2025-01-03 22:49:38 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser4@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months)
+2025-01-03 22:49:38 INFO  UserService:115 - Creating user Entity > : UserEntity(id=null, name=Test User, email=testuser4@example.com, storedHash=[-58, -105, -1, 75, 52, -75, -19, 26, -88, -68, 31, -61, 3, -98, -94, -30, -95, 29, 31, 64, 50, 46, 93, -64, -22, -113, -100, -79, -76, 71, -90, -111, -128, -117, -6, 99, -36, -82, -123, 1, 1, -94, 93, -115, -67, -120, -7, 48, 27, 22, -28, -46, 21, -42, -12, 116, -55, -75, -21, 56, -113, 63, -27, -5], storedSalt=[47, -13, -75, -101, -110, 45, -88, -14, -120, -112, 114, 7, -106, -33, -59, -118], age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months, createdAt=null, updatedAt=null)
 2025-01-03 22:49:47 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
 2025-01-03 22:49:47 INFO  GracefulShutdown:76 - Graceful shutdown complete
 2025-01-03 22:49:47 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -15222,7 +15222,7 @@ Caused by: java.net.ConnectException: Connection refused
 2025-01-06 15:55:20 ERROR LocalContainerEntityManagerFactoryBean:436 - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
 2025-01-06 15:55:20 WARN  AnnotationConfigServletWebServerApplicationContext:635 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution [Connection to localhost:5433 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.] [n/a]
 2025-01-06 15:55:20 INFO  StandardService:173 - Stopping service [Tomcat]
-2025-01-06 15:55:20 INFO  ConditionEvaluationReportLogger:82 - 
+2025-01-06 15:55:20 INFO  ConditionEvaluationReportLogger:82 -
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-06 15:55:20 ERROR SpringApplication:857 - Application run failed
@@ -15625,7 +15625,7 @@ Caused by: java.net.ConnectException: Connection refused
 2025-01-08 14:16:26 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-01-08 14:16:26 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2025-01-08 14:16:26 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
-2025-01-08 14:16:26 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser4@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months) 
+2025-01-08 14:16:26 INFO  UserController:44 - Creating user : UserDto(id=null, name=Test User, password=password123, email=testuser4@example.com, age=30, gender=Male, height=1.75, weight=70.5, gastritisDuration=6 months)
 2025-01-08 14:16:27 WARN  ExceptionHandlerExceptionResolver:254 - Resolved [org.apache.coyote.BadRequestException: Email testuser4@example.comtaken]
 2025-01-08 14:18:22 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
 2025-01-08 14:18:22 INFO  GracefulShutdown:76 - Graceful shutdown complete
@@ -15680,8 +15680,8 @@ Caused by: java.net.ConnectException: Connection refused
 2025-01-08 14:20:20 INFO  [/]:173 - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2025-01-08 14:20:20 INFO  DispatcherServlet:532 - Initializing Servlet 'dispatcherServlet'
 2025-01-08 14:20:20 INFO  DispatcherServlet:554 - Completed initialization in 1 ms
-2025-01-08 14:20:21 INFO  UserController:44 - Creating user : UserDto(id=null, name=testuser, password=password123, email=testuser8@example.com, age=25, gender=male, height=1.75, weight=70.0, gastritisDuration=2 years) 
-2025-01-08 14:20:21 INFO  UserService:115 - Creating user Entity > : UserEntity(id=null, name=testuser, email=testuser8@example.com, storedHash=[-102, -29, -86, 75, -76, 68, -53, 118, -17, 51, 82, 94, -64, -16, -113, -88, -48, -100, 4, 57, -47, -61, -121, 23, -91, -46, 42, -86, -105, -89, -16, 72, 65, -11, -47, -109, -96, 99, 68, -119, 63, 111, -110, 99, -8, -35, -20, -64, -3, 123, -56, 31, -71, 92, 108, 73, -68, 43, 123, 76, 58, 70, 45, -86], storedSalt=[52, 101, -18, 82, 124, -128, -27, 85, -12, -21, -114, 79, 24, -73, 66, -29], age=25, gender=male, height=1.75, weight=70.0, gastritisDuration=2 years, createdAt=null, updatedAt=null) 
+2025-01-08 14:20:21 INFO  UserController:44 - Creating user : UserDto(id=null, name=testuser, password=password123, email=testuser8@example.com, age=25, gender=male, height=1.75, weight=70.0, gastritisDuration=2 years)
+2025-01-08 14:20:21 INFO  UserService:115 - Creating user Entity > : UserEntity(id=null, name=testuser, email=testuser8@example.com, storedHash=[-102, -29, -86, 75, -76, 68, -53, 118, -17, 51, 82, 94, -64, -16, -113, -88, -48, -100, 4, 57, -47, -61, -121, 23, -91, -46, 42, -86, -105, -89, -16, 72, 65, -11, -47, -109, -96, 99, 68, -119, 63, 111, -110, 99, -8, -35, -20, -64, -3, 123, -56, 31, -71, 92, 108, 73, -68, 43, 123, 76, 58, 70, 45, -86], storedSalt=[52, 101, -18, 82, 124, -128, -27, 85, -12, -21, -114, 79, 24, -73, 66, -29], age=25, gender=male, height=1.75, weight=70.0, gastritisDuration=2 years, createdAt=null, updatedAt=null)
 2025-01-08 14:27:05 ERROR [dispatcherServlet]:175 - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.orm.jpa.JpaSystemException: Unable to access lob stream] with root cause
 org.postgresql.util.PSQLException: Large Objects may not be used in auto-commit mode.
 	at org.postgresql.largeobject.LargeObjectManager.open(LargeObjectManager.java:244) ~[postgresql-42.7.4.jar:42.7.4]
@@ -16768,7 +16768,7 @@ io.jsonwebtoken.io.DecodingException: Illegal base64 character: '-'
 2025-01-08 14:58:25 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-01-08 14:58:25 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
 2025-01-08 14:58:25 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
-2025-01-08 14:58:25 INFO  ConditionEvaluationReportLogger:82 - 
+2025-01-08 14:58:25 INFO  ConditionEvaluationReportLogger:82 -
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-08 14:58:25 ERROR SpringApplication:857 - Application run failed
@@ -17085,7 +17085,7 @@ Caused by: java.lang.NullPointerException: Cannot invoke "String.getBytes()" bec
 2025-01-08 15:14:15 INFO  DispatcherServlet:554 - Completed initialization in 2 ms
 2025-01-08 15:14:15 INFO  AuthenticateController:47 - Authenticated :dev.dario.gastrotrackapi.jwt.models.UserPrincipal@7fc40796
 2025-01-08 15:14:15 INFO  AuthenticateController:50 - JWT : eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlcjhAZXhhbXBsZS5jb20iLCJpYXQiOjE3MzYzMTY4NTUsImV4cCI6MTczNjM1Mjg1NX0.K5BnTNJbwnbD2HirVvkFrJFb2FK7bBlmEhVyMWZj_Bs
-2025-01-08 15:14:40 INFO  DailyDietLogController:79 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto@1ba8388c
+2025-01-08 15:14:40 INFO  DailyDietLogController:79 - Adding daily diet log DTO enter: dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto@1ba8388c
 2025-01-08 15:14:40 INFO  DailyDietLogController:81 - Adding daily diet log entity: DailyDietLogEntity{id=null, date=2023-10-01, meals='Chicken', typeMeal='Dinner', notes='Feel bad.', createdAt=2025-01-08T15:14:40.746958}
 2025-01-08 15:26:10 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
 2025-01-08 15:26:10 INFO  GracefulShutdown:76 - Graceful shutdown complete
@@ -17134,7 +17134,7 @@ Caused by: java.lang.NullPointerException: Cannot invoke "String.getBytes()" bec
 2025-01-12 18:50:42 INFO  LocalContainerEntityManagerFactoryBean:660 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-01-12 18:50:42 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
 2025-01-12 18:50:42 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
-2025-01-12 18:50:42 INFO  ConditionEvaluationReportLogger:82 - 
+2025-01-12 18:50:42 INFO  ConditionEvaluationReportLogger:82 -
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-12 18:50:42 ERROR SpringApplication:857 - Application run failed

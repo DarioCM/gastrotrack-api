@@ -1,4 +1,4 @@
-package dev.dario.gastrotrackapi.foodSymptomLog.entity;
+package dev.dario.gastrotrackapi.foodsymptomlog.entity;
 
 
 import dev.dario.gastrotrackapi.user.entity.UserEntity;

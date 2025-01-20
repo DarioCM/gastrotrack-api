@@ -1,8 +1,8 @@
-package dev.dario.gastrotrackapi.dailyDietLog.controller;
+package dev.dario.gastrotrackapi.dailydietlog.controller;
 
-import dev.dario.gastrotrackapi.dailyDietLog.dto.DailyDietLogDto;
-import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
-import dev.dario.gastrotrackapi.dailyDietLog.service.DailyDietLogService;
+import dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto;
+import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
+import dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService;
 import dev.dario.gastrotrackapi.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

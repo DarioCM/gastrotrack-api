@@ -1,6 +1,6 @@
-package dev.dario.gastrotrackapi.dailyDietLog.service;
+package dev.dario.gastrotrackapi.dailydietlog.service;
 
-import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
+import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.jpa.repository.DailyDietLogRepository;
 import dev.dario.gastrotrackapi.exception.NotFoundException;
 import lombok.AllArgsConstructor;

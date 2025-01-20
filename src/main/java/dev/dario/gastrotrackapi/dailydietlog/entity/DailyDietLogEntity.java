@@ -1,4 +1,4 @@
-package dev.dario.gastrotrackapi.dailyDietLog.entity;
+package dev.dario.gastrotrackapi.dailydietlog.entity;
 
 
 import dev.dario.gastrotrackapi.user.entity.UserEntity;

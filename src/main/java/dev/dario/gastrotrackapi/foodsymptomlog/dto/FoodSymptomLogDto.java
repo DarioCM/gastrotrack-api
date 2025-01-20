@@ -1,4 +1,4 @@
-package dev.dario.gastrotrackapi.foodSymptomLog.dto;
+package dev.dario.gastrotrackapi.foodsymptomlog.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;

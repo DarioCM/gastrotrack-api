@@ -1,7 +1,7 @@
-package dev.dario.gastrotrackapi.foodSymptomLog.service;
+package dev.dario.gastrotrackapi.foodsymptomlog.service;
 
 import dev.dario.gastrotrackapi.exception.NotFoundException;
-import dev.dario.gastrotrackapi.foodSymptomLog.entity.FoodSymptomLogEntity;
+import dev.dario.gastrotrackapi.foodsymptomlog.entity.FoodSymptomLogEntity;
 import dev.dario.gastrotrackapi.jpa.repository.FoodSymptomLogRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

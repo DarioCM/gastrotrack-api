@@ -1,6 +1,6 @@
 package dev.dario.gastrotrackapi.jpa.repository;
 
-import dev.dario.gastrotrackapi.dailyDietLog.entity.DailyDietLogEntity;
+import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

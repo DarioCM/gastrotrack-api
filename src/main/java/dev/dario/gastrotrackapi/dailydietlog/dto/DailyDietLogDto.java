@@ -1,8 +1,6 @@
-package dev.dario.gastrotrackapi.dailyDietLog.dto;
+package dev.dario.gastrotrackapi.dailydietlog.dto;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
