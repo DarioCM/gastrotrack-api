@@ -1,5 +1,6 @@
 package dev.dario.gastrotrackapi.dailydietlog;
 
+import dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto;
 import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService;
 import dev.dario.gastrotrackapi.exception.NotFoundException;
@@ -10,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.*;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -25,8 +28,13 @@ class DailyDietLogServiceTest {
     @Mock
     private DailyDietLogRepository dailyDietLogRepository;
 
+    @Mock
+    private ModelMapper modelMapper;
+
     @InjectMocks
     private DailyDietLogService dailyDietLogService;
+
+
 
     private UserEntity testUser;
     private DailyDietLogEntity testLog;
@@ -43,27 +51,53 @@ class DailyDietLogServiceTest {
         testLog.setDate(LocalDate.now());
         testLog.setMeals("Lunch");
         testLog.setUser(testUser);
+
+        when(modelMapper.map(any(DailyDietLogEntity.class), eq(DailyDietLogDto.class))).thenAnswer(invocation -> {
+            DailyDietLogEntity entity = invocation.getArgument(0);
+            DailyDietLogDto dto = new DailyDietLogDto();
+            dto.setId(entity.getId());
+            dto.setDate(entity.getDate().toString());
+            dto.setMeals(entity.getMeals());
+            dto.setUserId(testUser.getId());
+            return dto;
+        });
+
+        when(modelMapper.map(any(DailyDietLogDto.class), eq(DailyDietLogEntity.class))).thenAnswer(invocation -> {
+            DailyDietLogEntity entity = new DailyDietLogEntity();
+            entity.setId(testLog.getId());
+            entity.setDate(testLog.getDate());
+            entity.setMeals(testLog.getMeals());
+            UserEntity user = new UserEntity();
+            user.setId(testUser.getId());
+            entity.setUser(testUser);
+            return entity;
+        });
     }
 
     @Test
     void testFindAllByUserId() {
-        when(dailyDietLogRepository.findAllByUserId(testUser.getId())).thenReturn(List.of(testLog));
 
-        List<DailyDietLogEntity> logs = dailyDietLogService.findAllByUserId(testUser.getId());
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("date").descending());
+
+        Page<DailyDietLogEntity> mockPage = new PageImpl<>(List.of(testLog), pageable, 1);
+        when(dailyDietLogRepository.findAllByUserId(eq(testUser.getId()), any(Pageable.class))).thenReturn(mockPage);
+
+        Page<DailyDietLogDto> logs = dailyDietLogService.findAllByUserId(testUser.getId(), pageable);
 
         assertThat(logs).isNotEmpty();
-        assertThat(logs.get(0).getMeals()).isEqualTo("Lunch");
-        verify(dailyDietLogRepository, times(1)).findAllByUserId(testUser.getId());
+        assertThat(logs.getContent().get(0).getMeals()).isEqualTo("Lunch");
+
     }
 
     @Test
     void testAddDailyDietLog() {
         when(dailyDietLogRepository.save(any(DailyDietLogEntity.class))).thenReturn(testLog);
 
-        DailyDietLogEntity savedLog = dailyDietLogService.addDailyDietLog(testLog);
+        DailyDietLogDto dto = dailyDietLogService.convertToDto(testLog);
+        DailyDietLogDto savedLog = dailyDietLogService.addDailyDietLog(dto, testUser.getId());
 
         assertThat(savedLog.getMeals()).isEqualTo("Lunch");
-        verify(dailyDietLogRepository, times(1)).save(testLog);
+        verify(dailyDietLogRepository, times(1)).save(any(DailyDietLogEntity.class));
     }
 
     @Test
@@ -71,7 +105,7 @@ class DailyDietLogServiceTest {
         doNothing().when(dailyDietLogRepository).deleteById(testLog.getId());
         when(dailyDietLogRepository.findById(testLog.getId())).thenReturn(Optional.of(testLog));
 
-        dailyDietLogService.removeDailyDietLog(testLog.getId());
+        dailyDietLogService.removeDailyDietLog(testLog.getId(), testUser.getId());
 
         verify(dailyDietLogRepository, times(1)).deleteById(testLog.getId());
     }
@@ -82,17 +116,18 @@ class DailyDietLogServiceTest {
         when(dailyDietLogRepository.save(any(DailyDietLogEntity.class))).thenReturn(testLog);
 
         testLog.setMeals("Updated Lunch");
-        dailyDietLogService.updateDailyDietLog(testLog.getId(), testLog);
+        DailyDietLogDto dto = dailyDietLogService.convertToDto(testLog);
+        dailyDietLogService.updateDailyDietLog(testLog.getId(), dto , testUser.getId());
 
-        verify(dailyDietLogRepository, times(1)).save(testLog);
-        assertThat(testLog.getMeals()).isEqualTo("Updated Lunch");
+        verify(dailyDietLogRepository, times(1)).save(any(DailyDietLogEntity.class));
+        assertThat(dto.getMeals()).isEqualTo("Updated Lunch");
     }
 
     @Test
     void testRemoveDailyDietLog_NotFound() {
         when(dailyDietLogRepository.findById(testLog.getId())).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> dailyDietLogService.removeDailyDietLog(testLog.getId()))
+        assertThatThrownBy(() -> dailyDietLogService.removeDailyDietLog(testLog.getId(), testUser.getId()))
                 .isInstanceOf(NotFoundException.class);
 
         verify(dailyDietLogRepository, never()).deleteById(testLog.getId());
@@ -102,7 +137,8 @@ class DailyDietLogServiceTest {
     void testUpdateDailyDietLog_NotFound() {
         when(dailyDietLogRepository.findById(testLog.getId())).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> dailyDietLogService.updateDailyDietLog(testLog.getId(), testLog))
+        DailyDietLogDto dto = dailyDietLogService.convertToDto(testLog);
+        assertThatThrownBy(() -> dailyDietLogService.updateDailyDietLog(testLog.getId(), dto, testUser.getId()))
                 .isInstanceOf(NotFoundException.class);
 
         verify(dailyDietLogRepository, never()).save(testLog);

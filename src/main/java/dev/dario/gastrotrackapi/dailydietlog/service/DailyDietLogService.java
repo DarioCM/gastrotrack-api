@@ -2,14 +2,18 @@ package dev.dario.gastrotrackapi.dailydietlog.service;
 
 import dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto;
 import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
-import dev.dario.gastrotrackapi.jpa.repository.DailyDietLogRepository;
 import dev.dario.gastrotrackapi.exception.NotFoundException;
+import dev.dario.gastrotrackapi.jpa.repository.DailyDietLogRepository;
+import dev.dario.gastrotrackapi.user.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Service
@@ -18,35 +22,61 @@ import java.util.UUID;
 public class DailyDietLogService {
 
     private final DailyDietLogRepository repository;
+    private final UserService userService;
+    private final ModelMapper mapper;
+
+    //  Convert entity to DTO
+    public DailyDietLogDto convertToDto(DailyDietLogEntity entity) {
+        return mapper.map(entity, DailyDietLogDto.class);
+    }
+
+    //  Convert DTO to entity
+    public DailyDietLogEntity convertToEntity(DailyDietLogDto dto) {
+        var entity = mapper.map(dto, DailyDietLogEntity.class);
+        entity.setDate(LocalDate.parse(dto.getDate()));
+        return entity;
+    }
+
 
     // findAll
     // Get all logs for a user by user ID
     @Transactional(readOnly = true)
-    public List<DailyDietLogEntity> findAllByUserId(UUID userId) {
+    public Page<DailyDietLogDto> findAllByUserId(UUID userId, Pageable pageable) {
         log.info("Finding logs for user: {}", userId);
-        return repository.findAllByUserId(userId);
+        Page<DailyDietLogEntity> logs = repository.findAllByUserId(userId, pageable);
+        return logs.map(this::convertToDto);
     }
 
     // add
     @Transactional
-    public DailyDietLogEntity addDailyDietLog(DailyDietLogEntity entity) {
-        log.info("Adding daily diet log: {}", entity);
-        return repository.save(entity);
+    public DailyDietLogDto addDailyDietLog(DailyDietLogDto dto, UUID userId) {
+        log.info("Adding daily diet log: {} , {} ", dto, userId);
+        userService.findOrThrow(userId);
+        dto.setUserId(userId);
+        var entity = convertToEntity(dto);
+        var savedLog = repository.save(entity);
+        return convertToDto(savedLog);
     }
 
     // delete
     @Transactional
-    public void removeDailyDietLog(UUID id) {
-        log.info("Removing daily diet log with ID: {}", id);
+    public void removeDailyDietLog(UUID id, UUID userId) {
+        log.info("Removing daily diet log with ID: {}  , user {}", id, userId);
         findOrThrow(id);
+        verifyOwnership(id, userId);
         repository.deleteById(id);
     }
 
     // update
     @Transactional
-    public void updateDailyDietLog(UUID id, DailyDietLogEntity entity) {
-        log.info("Updating daily diet log with ID: {}", id);
+    public void updateDailyDietLog(UUID id, DailyDietLogDto dto, UUID userId) {
+        log.info("Updating daily diet log with ID: {} , user {} ", id,  userId);
         findOrThrow(id);
+        verifyOwnership(id, userId);
+        if (!id.equals(dto.getId())) {
+            throw new IllegalArgumentException("ID in request body does not match path parameter.");
+        }
+        var entity = convertToEntity(dto);
         repository.save(entity);
     }
 

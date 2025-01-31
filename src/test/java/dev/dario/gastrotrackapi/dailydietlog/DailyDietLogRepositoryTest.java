@@ -8,10 +8,10 @@ import dev.dario.gastrotrackapi.user.entity.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.JdbcConnectionDetails;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.transaction.annotation.Transactional;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
@@ -40,9 +40,6 @@ public class DailyDietLogRepositoryTest {
 
     @Autowired
     UserRepository userRepository;
-
-    @Autowired
-    JdbcConnectionDetails  jdbcConnectionDetails;
 
     private UserEntity testUser;
     private DailyDietLogEntity log;
@@ -76,14 +73,14 @@ public class DailyDietLogRepositoryTest {
 
     @Test
     void testFindLogsByUser() {
-        List<DailyDietLogEntity> logs = repository.findAllByUserId(testUser.getId());
+        List<DailyDietLogEntity> logs = repository.findAllByUserId(testUser.getId(), PageRequest.of(0, 10)).getContent();
         assertThat(logs).isNotEmpty();
         assertThat(logs.get(0).getMeals()).isEqualTo("Breakfast");
     }
 
     @Test
     void testFindLogsByDate() {
-        List<DailyDietLogEntity> logs = repository.findAllByUserId(testUser.getId());
+        List<DailyDietLogEntity> logs = repository.findAllByUserId(testUser.getId(), PageRequest.of(0, 10)).getContent();
         assertThat(logs).isNotEmpty();
         assertThat(logs.get(0).getDate()).isEqualTo(LocalDate.now());
     }
