@@ -31,10 +31,10 @@ public class SecurityConfig {
 
                 // Authorize requests
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(
-                                "/authenticate",
-                                "/register").permitAll() // Allow public access to /authenticate
-                        .anyRequest().authenticated() // Require authentication for all other endpoints
+                        .requestMatchers("/authenticate", "/register").permitAll()
+                        .requestMatchers("/api/v1/admin/**").hasRole("ADMIN") // Example for admin-only endpoints
+                        .requestMatchers("/api/v1/**").hasRole("USER") // Allow only authenticated users
+                        .anyRequest().authenticated()
                 )
 
                 // set session managment to sateless (for REST APIs)

@@ -3,6 +3,7 @@ package dev.dario.gastrotrackapi.dailydietlog.controller;
 import dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto;
 import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService;
+import dev.dario.gastrotrackapi.jwt.models.UserPrincipal;
 import dev.dario.gastrotrackapi.user.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -47,16 +49,16 @@ public class DailyDietLogController {
     }
 
     // Get all logs for a user
-    // GET /api/v1/daily-diet-logs/123e4567-e89b-12d3-a456-426614174000
-    @GetMapping("/{userId}")
+    // userPrincipal is the authenticated user from the JWT token
+    @GetMapping
     public Page<DailyDietLogDto> getAllByUserId(
-            @PathVariable UUID userId,
-            Pageable pageable) {
+            Pageable pageable,
+            @AuthenticationPrincipal UserPrincipal userPrincipal) {
 
         int toSkip = pageable.getPageSize() * pageable.getPageNumber();
 
+        UUID userId = userPrincipal.getId();
         List<DailyDietLogEntity> logs = service.findAllByUserId(userId);
-        log.info("Daily diet logs: {}", logs);
 
         List<DailyDietLogDto> dtoList = logs.stream()
                 .map(log -> new DailyDietLogDto(
@@ -70,16 +72,19 @@ public class DailyDietLogController {
                 .skip(toSkip).limit(pageable.getPageSize())
                 .collect(Collectors.toList());
 
+        log.info("Retrieved daily diet logs for user {}: {}", userId, dtoList);
+
         return new PageImpl<>(dtoList, pageable, logs.size());
     }
 
     // POST a new daily diet log
-    // POST  /api/v1/daily-diet-logs/{id}
-    @PostMapping("/{id}")
+    // POST  /api/v1/users/:userId/daily-diet-logs/
+    @PostMapping
     public ResponseEntity<DailyDietLogDto> addDailyDietLog(
-            @PathVariable("id") UUID userId,
-            @Valid @RequestBody DailyDietLogDto dto) {
+            @Valid @RequestBody DailyDietLogDto dto,
+            @AuthenticationPrincipal UserPrincipal userPrincipal) {
 
+        UUID userId = userPrincipal.getId();
         // Validate user existence
         userService.findOrThrow(userId);
         dto.setUserId(userId);
@@ -95,7 +100,12 @@ public class DailyDietLogController {
     // DELETE
     // DELETE /api/v1/daily-diet-logs/{id}
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> removeDailyDietLog(@PathVariable("id") UUID id) {
+    public ResponseEntity<Void> removeDailyDietLog(
+            @PathVariable("id") UUID id,
+            @AuthenticationPrincipal UserPrincipal userPrincipal) {
+
+        UUID userId = userPrincipal.getId();
+        service.verifyOwnership(id, userId);
         service.removeDailyDietLog(id);
         return ResponseEntity.noContent().build();
     }
@@ -105,7 +115,10 @@ public class DailyDietLogController {
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateDailyDietLog(
             @PathVariable("id") UUID id,
-            @Valid @RequestBody DailyDietLogDto dto) {
+            @Valid @RequestBody DailyDietLogDto dto,
+            @AuthenticationPrincipal UserPrincipal userPrincipal) {
+
+        service.verifyOwnership(id, userPrincipal.getId());
 
         if (!id.equals(dto.getId())) throw
             new ResponseStatusException(HttpStatus.BAD_REQUEST, "id does not match.");

@@ -1,5 +1,6 @@
 package dev.dario.gastrotrackapi.dailydietlog.service;
 
+import dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto;
 import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
 import dev.dario.gastrotrackapi.jpa.repository.DailyDietLogRepository;
 import dev.dario.gastrotrackapi.exception.NotFoundException;
@@ -53,6 +54,18 @@ public class DailyDietLogService {
     private DailyDietLogEntity findOrThrow(final UUID id) {
         log.debug("Fetching daily diet log with ID: {}", id);
         return repository.findById(id).orElseThrow(() -> new NotFoundException("DailyDietLog not found"));
+    }
+
+    public void verifyOwnership(UUID id, UUID userId) {
+
+        DailyDietLogEntity log = repository.findById(id).orElseThrow(
+                () -> new NotFoundException("DailyDietLog not found")
+        );
+
+        if(!log.getUser().getId().equals(userId)) {
+            throw new RuntimeException("User does not own this DailyDietLog");
+        }
+
     }
 }
 

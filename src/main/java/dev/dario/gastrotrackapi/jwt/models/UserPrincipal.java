@@ -3,21 +3,26 @@ package dev.dario.gastrotrackapi.jwt.models;
 import dev.dario.gastrotrackapi.user.entity.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 
-@AllArgsConstructor
+
 public class UserPrincipal implements UserDetails {
 
     private final UserEntity userEntity;
 
+    public UserPrincipal(UserEntity user) {
+        this.userEntity = user;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // If roles or permissions are added in the future, map them here.
-        // For now, return an empty list (or roles from the UserEntity).
-        return Collections.emptyList();
+        return List.of(new SimpleGrantedAuthority("ROLE_" + userEntity.getRole().name()));  // Ensure "ROLE_USER"
     }
 
     @Override
@@ -30,6 +35,11 @@ public class UserPrincipal implements UserDetails {
     public String getUsername() {
         // Use the email as the username
         return this.userEntity.getEmail();
+    }
+
+    // return the UUID of the user
+    public UUID getId() {
+        return this.userEntity.getId();
     }
 
     @Override
@@ -55,4 +65,7 @@ public class UserPrincipal implements UserDetails {
         // Return true if the user is active. Modify based on your logic.
         return true;
     }
+
+    //ROLE
+
 }

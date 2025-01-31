@@ -12,7 +12,7 @@ public class DailyDietLogDto {
 
     private UUID id;
 
-    @NotNull
+
     private UUID userId;
 
     @NotNull

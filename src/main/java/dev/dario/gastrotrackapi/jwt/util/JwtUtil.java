@@ -12,8 +12,11 @@ import org.springframework.stereotype.Service;
 import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+import org.springframework.security.core.GrantedAuthority;
+
 
 @Service
 public class JwtUtil {
@@ -45,6 +48,12 @@ public class JwtUtil {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+
+        //adding role
+        claims.put("roles", userDetails.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .toList()); // Ensure roles are added
+
         return createToken(claims, userDetails.getUsername());
     }
 
@@ -77,5 +86,10 @@ public class JwtUtil {
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUserName(token);
         return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+    }
+
+    public List<String> extractRoles(String token) {
+        Claims claims = extractAllClaims(token);
+        return claims.get("roles", List.class); // Extract roles
     }
 }
