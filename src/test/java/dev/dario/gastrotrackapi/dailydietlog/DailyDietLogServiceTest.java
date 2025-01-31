@@ -1,11 +1,7 @@
 package dev.dario.gastrotrackapi.dailydietlog;
 
-import dev.dario.gastrotrackapi.dailydietlog.dto.DailyDietLogDto;
-import dev.dario.gastrotrackapi.dailydietlog.entity.DailyDietLogEntity;
-import dev.dario.gastrotrackapi.dailydietlog.service.DailyDietLogService;
 import dev.dario.gastrotrackapi.exception.NotFoundException;
-import dev.dario.gastrotrackapi.jpa.repository.DailyDietLogRepository;
-import dev.dario.gastrotrackapi.user.entity.UserEntity;
+import dev.dario.gastrotrackapi.user.UserEntity;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

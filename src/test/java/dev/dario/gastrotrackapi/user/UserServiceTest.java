@@ -2,9 +2,6 @@ package dev.dario.gastrotrackapi.user;
 
 
 import dev.dario.gastrotrackapi.exception.NotFoundException;
-import dev.dario.gastrotrackapi.jpa.repository.UserRepository;
-import dev.dario.gastrotrackapi.user.entity.UserEntity;
-import dev.dario.gastrotrackapi.user.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
