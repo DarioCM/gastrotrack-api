@@ -10,10 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import org.springframework.security.core.GrantedAuthority;
 
@@ -26,6 +23,9 @@ public class JwtUtil {
 
     private Key key;
 
+    // TODO: change this to a database or cache REDIS
+    private Set<String> invalidatedTokens = new HashSet<>();
+
     @PostConstruct
     public void init() {
         if (SECRET_KEY == null || SECRET_KEY.isEmpty()) {
@@ -34,7 +34,7 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 10; // 10 hours
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 1; // 1 hour
 
     public String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()
@@ -85,11 +85,16 @@ public class JwtUtil {
 
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUserName(token);
-        return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+        return username.equals(userDetails.getUsername()) && !isTokenExpired(token) && !invalidatedTokens.contains(token);
     }
 
     public List<String> extractRoles(String token) {
         Claims claims = extractAllClaims(token);
         return claims.get("roles", List.class); // Extract roles
+    }
+
+    public void invalidateToken(String token) {
+        // Implement token invalidation
+        invalidatedTokens.add(token);
     }
 }

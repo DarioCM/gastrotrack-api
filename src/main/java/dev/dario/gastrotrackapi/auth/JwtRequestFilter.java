@@ -52,6 +52,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                     .collect(Collectors.toList());
 
             if (jwtUtil.validateToken(token, userDetails)) {
+
+                // credentials are not required for JWT token
                 var usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, authorities
                 );
@@ -60,7 +62,10 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                         new WebAuthenticationDetailsSource().buildDetails(request)
                 );
 
-                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                // Set the authentication in the context to let Spring know that the user is authenticated
+                // and authorized
+                SecurityContextHolder.getContext()
+                        .setAuthentication(usernamePasswordAuthenticationToken);
             }
         }
 
