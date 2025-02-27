@@ -20,7 +20,7 @@ public class CorsConfig {
         configuration.setAllowCredentials(true);
 
         configuration.setAllowedOrigins(
-                List.of("http://localhost:4200")
+                List.of("http://localhost:4200","http://localhost:5173/")
         );
 
         configuration.setAllowedHeaders(
