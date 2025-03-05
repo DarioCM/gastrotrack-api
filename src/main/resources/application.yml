@@ -41,6 +41,13 @@ springdoc:
     path: /swagger-ui.html
 
 jwt:
-  secret: 
+  secret:
+
+logging:
+  level:
+    root: info
+    org.springframework.security: DEBUG
+  file:
+    name: /tmp/logs/GastroTrack.log
 
 
