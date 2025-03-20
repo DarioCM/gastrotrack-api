@@ -41,7 +41,7 @@ springdoc:
     path: /swagger-ui.html
 
 jwt:
-  secret:
+  secret: sjqJCYPyDrDWI/flWZDfP2r6hHLDxYHM119NLmVEL2w=
 
 logging:
   level:
