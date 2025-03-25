@@ -20,20 +20,7 @@ public class DailyDietLogService {
 
     private final DailyDietLogRepository repository;
     private final UserService userService;
-    private final ModelMapper mapper;
-
-    //  Convert entity to DTO
-    public DailyDietLogDto convertToDto(DailyDietLogEntity entity) {
-        return mapper.map(entity, DailyDietLogDto.class);
-    }
-
-    //  Convert DTO to entity
-    public DailyDietLogEntity convertToEntity(DailyDietLogDto dto) {
-        var entity = mapper.map(dto, DailyDietLogEntity.class);
-        entity.setDate(LocalDate.parse(dto.getDate()));
-        return entity;
-    }
-
+    private final DailyDietLogMapper mapper;
 
     // findAll
     // Get all logs for a user by user ID
@@ -41,7 +28,7 @@ public class DailyDietLogService {
     public Page<DailyDietLogDto> findAllByUserId(UUID userId, Pageable pageable) {
         log.info("Finding logs for user: {}", userId);
         Page<DailyDietLogEntity> logs = repository.findAllByUserId(userId, pageable);
-        return logs.map(this::convertToDto);
+        return logs.map(mapper::convertToDto);
     }
 
     // add
@@ -50,9 +37,9 @@ public class DailyDietLogService {
         log.info("Adding daily diet log: {} , {} ", dto, userId);
         userService.findOrThrow(userId);
         dto.setUserId(userId);
-        var entity = convertToEntity(dto);
+        var entity = mapper.convertToEntity(dto);
         var savedLog = repository.save(entity);
-        return convertToDto(savedLog);
+        return mapper.convertToDto(savedLog);
     }
 
     // delete
@@ -73,7 +60,7 @@ public class DailyDietLogService {
         if (!id.equals(dto.getId())) {
             throw new IllegalArgumentException("ID in request body does not match path parameter.");
         }
-        var entity = convertToEntity(dto);
+        var entity = mapper.convertToEntity(dto);
         repository.save(entity);
     }
 
