@@ -1,6 +1,7 @@
 package dev.dario.gastrotrackapi.dailydietlog;
 
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
+@Builder
 public class DailyDietLogDto {
 
     private UUID id;
@@ -40,6 +42,16 @@ public class DailyDietLogDto {
         this.typeMeal = typeMeal;
         this.notes = notes;
         this.userId = UUID.fromString(userId);
+    }
+
+    // After
+    public DailyDietLogDto(UUID id, UUID userId, String date, String meals, String typeMeal, String notes) {
+        this.id = id;
+        this.userId = userId;
+        this.date = date;
+        this.meals = meals;
+        this.typeMeal = typeMeal;
+        this.notes = notes;
     }
 
 
