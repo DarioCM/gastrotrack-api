@@ -1,6 +1,6 @@
 package dev.dario.gastrotrackapi.foodsymptomlog;
 
-import dev.dario.gastrotrackapi.exception.NotFoundException;
+import dev.dario.gastrotrackapi.advice.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

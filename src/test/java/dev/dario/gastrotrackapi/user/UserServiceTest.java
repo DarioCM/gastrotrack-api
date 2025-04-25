@@ -1,7 +1,7 @@
 package dev.dario.gastrotrackapi.user;
 
 
-import dev.dario.gastrotrackapi.exception.NotFoundException;
+import dev.dario.gastrotrackapi.advice.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

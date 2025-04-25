@@ -1,4 +1,4 @@
-package dev.dario.gastrotrackapi.exception;
+package dev.dario.gastrotrackapi.advice;
 
 public class NotFoundException extends RuntimeException {
 

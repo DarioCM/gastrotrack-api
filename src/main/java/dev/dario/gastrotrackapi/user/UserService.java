@@ -1,6 +1,6 @@
 package dev.dario.gastrotrackapi.user;
 
-import dev.dario.gastrotrackapi.exception.NotFoundException;
+import dev.dario.gastrotrackapi.advice.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.coyote.BadRequestException;
