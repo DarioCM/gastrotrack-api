@@ -16,8 +16,11 @@ import java.util.UUID;
 @Table(name = "users")
 public class UserEntity {
 
+
+    //@GeneratedValue(strategy = GenerationType.UUID)
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue
+    @org.hibernate.annotations.UuidGenerator
     private UUID id;
 
     @NotNull
