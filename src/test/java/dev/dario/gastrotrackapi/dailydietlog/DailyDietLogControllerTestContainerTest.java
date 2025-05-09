@@ -1,14 +1,13 @@
 package dev.dario.gastrotrackapi.dailydietlog;
 
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -18,18 +17,9 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 public class DailyDietLogControllerTestContainerTest {
 
   @Container
+  @ServiceConnection
   private static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer(
-      "postgres:latest")
-      .withDatabaseName("gastrotrackdb")
-      .withUsername("postgres")
-      .withPassword("password");
-
-  @DynamicPropertySource
-  private static void overrideProperties(DynamicPropertyRegistry registry){
-    registry.add("spring.data.datasource.url", postgreSQLContainer::getJdbcUrl);
-    registry.add("spring.data.datasource.username", postgreSQLContainer::getUsername);
-    registry.add("spring.data.datasource.password", postgreSQLContainer::getPassword);
-  }
+      "postgres:latest");
 
   @Test
   @DisplayName("The test container is created")
@@ -37,10 +27,5 @@ public class DailyDietLogControllerTestContainerTest {
     assertTrue(postgreSQLContainer.isCreated(), "Container noty created yet");
     assertTrue(postgreSQLContainer.isRunning(), "Container is not running");
   }
-
-
-
-
-
 
 }
