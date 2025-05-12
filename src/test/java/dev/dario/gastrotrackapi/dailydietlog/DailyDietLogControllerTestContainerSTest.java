@@ -22,6 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 @SpringBootTest
@@ -40,6 +41,7 @@ public class DailyDietLogControllerTestContainerSTest {
   UserEntity ue;
   UserPrincipal principal;
 
+  @Container
   @ServiceConnection
   private static PostgreSQLContainer
       postgreSQLContainer = new PostgreSQLContainer<>("postgres:latest");
