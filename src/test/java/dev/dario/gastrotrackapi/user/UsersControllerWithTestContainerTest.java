@@ -39,8 +39,6 @@ public class UsersControllerWithTestContainerTest {
    void setUp(){
     RestAssured.baseURI = "http://localhost";
     RestAssured.port = port;
-
-
   }
 
   @Test
@@ -59,7 +57,7 @@ public class UsersControllerWithTestContainerTest {
         .build();
     //act
     UserDto createdUSER =
-        given()
+        given().log().all()
         .contentType(ContentType.JSON)
         .accept(ContentType.JSON)
         .body(testUser)
