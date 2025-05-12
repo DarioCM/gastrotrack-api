@@ -9,6 +9,7 @@ import io.restassured.http.ContentType;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -43,6 +44,7 @@ public class UsersControllerWithTestContainerTest {
 
   @Test
   @DisplayName("created user test")
+  @Order(1)
   void testCreateUser_whenValidDetailsProvided_returnsCreateUser() {
     //arrange
     UserDto testUser = UserDto.builder()
@@ -68,7 +70,8 @@ public class UsersControllerWithTestContainerTest {
     //assert
     assertEquals(testUser.getName(), createdUSER.getName());
     assertNotNull(createdUSER.getId());
-
   }
+
+
 
 }
