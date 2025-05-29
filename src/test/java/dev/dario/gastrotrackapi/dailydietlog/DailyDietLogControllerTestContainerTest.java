@@ -44,7 +44,7 @@ public class DailyDietLogControllerTestContainerTest {
   UserPrincipal principal;
 
   @Container
-  private static PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer(
+  private static final PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer(
       "postgres:latest")
       .withDatabaseName("gastrotrackdb")
       .withUsername("postgres")

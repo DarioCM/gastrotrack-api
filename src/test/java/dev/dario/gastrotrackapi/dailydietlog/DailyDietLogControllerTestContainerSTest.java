@@ -43,7 +43,7 @@ public class DailyDietLogControllerTestContainerSTest {
 
   @Container
   @ServiceConnection
-  private static PostgreSQLContainer
+  private static final PostgreSQLContainer
       postgreSQLContainer = new PostgreSQLContainer<>("postgres:latest");
 
   @BeforeEach

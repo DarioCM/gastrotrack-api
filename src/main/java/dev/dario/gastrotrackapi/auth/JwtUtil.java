@@ -24,7 +24,7 @@ public class JwtUtil {
     private Key key;
 
     // TODO: change this to a database or cache REDIS
-    private Set<String> invalidatedTokens = new HashSet<>();
+    private final Set<String> invalidatedTokens = new HashSet<>();
 
     @PostConstruct
     public void init() {
@@ -34,7 +34,7 @@ public class JwtUtil {
         this.key = Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
     }
 
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 1; // 1 hour
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60; // 1 hour
 
     public String createToken(Map<String, Object> claims, String subject) {
         return Jwts.builder()

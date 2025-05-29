@@ -43,6 +43,16 @@ springdoc:
 jwt:
   secret: sjqJCYPyDrDWI/flWZDfP2r6hHLDxYHM119NLmVEL2w=
 
+#Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
 logging:
   level:
     root: info
