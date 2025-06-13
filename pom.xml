@@ -10,6 +10,9 @@
   <groupId>dev.dario</groupId>
   <artifactId>gastrotrack-api</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+
+  <packaging>war</packaging>
+
   <name>gastrotrack-api</name>
   <description>API for tracking gastritis symptoms and food intake.</description>
   <properties>
@@ -218,5 +221,8 @@
       </plugin>
 
     </plugins>
+
+    <finalName>gastrotrack-api-finalWar</finalName>
+
   </build>
 </project>
